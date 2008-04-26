@@ -1,9 +1,5 @@
-try:
-    from Products.validation.interfaces.IValidationService import IValidationService
-    from Products.validation.interfaces.IValidator import IValidator
-except ImportError:
-    from validation.interfaces.IValidationService import IValidationService
-    from validation.interfaces.IValidator import IValidator
+from Products.validation.interfaces.IValidationService import IValidationService
+from Products.validation.interfaces.IValidator import IValidator
 
 from exceptions import UnknowValidatorError, FalseValidatorError, AlreadyRegisteredValidatorError
 from types import StringType, StringTypes

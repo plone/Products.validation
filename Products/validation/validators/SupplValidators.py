@@ -1,25 +1,11 @@
-try:
-    from Products.validation.interfaces.IValidator import IValidator
-    from Acquisition import aq_base
-except ImportError:
-    import sys, os
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
-    from interfaces.IValidator import IValidator
-    del sys, os
+from Acquisition import aq_base
+from DateTime import DateTime
+from ZPublisher.HTTPRequest import FileUpload
+
+from Products.validation.interfaces.IValidator import IValidator
 
 _marker = []
 
-try:
-    True
-except NameError:
-    True=1
-    False=0
-
-from types import FileType
-try:
-    from ZPublisher.HTTPRequest import FileUpload
-except ImportError:
-    FileUpload = FileType
 
 class MaxSizeValidator:
     """Tests if an upload, file or something supporting len() is smaller than a 
@@ -60,8 +46,8 @@ class MaxSizeValidator:
             return True
         
         # calculate size
-        elif isinstance(value, FileUpload) or type(value) is FileType \
-          or hasattr(aq_base(value), 'tell'):
+        elif (isinstance(value, FileUpload) or isinstance(value, file) or
+              hasattr(aq_base(value), 'tell')):
             value.seek(0, 2) # eof
             size = value.tell()
             value.seek(0)
@@ -79,12 +65,6 @@ class MaxSizeValidator:
         else:
             return True
 
-
-try:
-    from DateTime import DateTime
-except ImportError:
-    # XXX use python datetime?
-    DateTime = lambda date: None
 
 class DateValidator:
 
@@ -114,4 +94,3 @@ validatorList = [
     ]
 
 __all__ = ('validatorList', )
-

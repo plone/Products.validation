@@ -1,18 +1,8 @@
-"""
-"""
-try:
-    from Products.validation.interfaces.IValidator import IValidator, IValidationChain
-except ImportError:
-    from interfaces.IValidator import IValidator, IValidationChain
+from Products.validation.interfaces.IValidator import IValidator, IValidationChain
 
 from types import StringType, TupleType, ListType, UnicodeType
 from config import validation as validationService
 from exceptions import UnknowValidatorError, FalseValidatorError, AlreadyRegisteredValidatorError
-
-try:
-    from types import StringTypes
-except ImportError:
-    StringTypes = (UnicodeType, StringType)
 
 V_REQUIRED   = 1
 V_SUFFICIENT = 2
@@ -149,12 +139,12 @@ class ValidationChain:
                     raise ValidatorError, 'Unknown mode %s' % mode
             else:
                 if mode == V_SUFFICIENT:
-                    if type(result) in StringTypes:
+                    if isinstance(result, basestring):
                         # don't log if validator doesn't return an error msg
                         results[name] = result
                     continue # no fatal error, go on
                 elif mode == V_REQUIRED:
-                    if type(result) in StringTypes:
+                    if isinstance(result, basestring):
                         # don't log if validator doesn't return an error msg
                         results[name] = result
                     failed = True

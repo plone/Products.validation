@@ -1,10 +1,5 @@
-try:
-    from Products.validation.interfaces.IValidator import IValidator
-except ImportError:
-    import sys, os
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
-    from interfaces.IValidator import IValidator
-    del sys, os
+from Products.validation.interfaces.IValidator import IValidator
+
 
 class RangeValidator:
     __implements__ = IValidator

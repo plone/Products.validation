@@ -4,6 +4,9 @@ Changelog
 trunk - unreleased
 ------------------
 
+* Cleaned up lots of old BBB code.
+  [hannosch]
+
 * Email validator did not allow apostrophe in the local part of an email
   address. This closes http://dev.plone.org/plone/ticket/7947.
   [hannosch]
