@@ -1,4 +1,3 @@
-from Products.validation.interfaces.IValidationService import IValidationService
 from Products.validation.service import Service
 
 from Acquisition import Implicit
@@ -15,7 +14,6 @@ class ZService(Service, Implicit):
     """Service running in a zope site - exposes some methods""" 
 
     security = ClassSecurityInfo()
-    __implements__ = IValidationService
 
     security.declarePublic('validate')
     security.declarePublic('__call__')

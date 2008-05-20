@@ -1,8 +1,9 @@
 from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implements
 
 
 class RangeValidator:
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, minval=0.0, maxval=0.0, title='', description=''):
         self.name = name

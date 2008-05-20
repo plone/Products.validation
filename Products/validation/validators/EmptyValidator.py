@@ -1,10 +1,11 @@
 from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implements
 
 _marker = []
 
 
 class EmptyValidator:
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description='', showError=True):
         self.name = name

@@ -4,6 +4,10 @@ Changelog
 trunk - unreleased
 ------------------
 
+* Purge old zope2 Interface interfaces for Zope 2.12 compatibility.
+  Consider branching before this checkin if release required before Plone 4.
+  [elro]
+
 * Cleaned up lots of old BBB code.
   [hannosch]
 

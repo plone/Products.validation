@@ -4,11 +4,12 @@ from Acquisition import aq_base
 from Acquisition import aq_get
 from zExceptions import BadRequest
 from OFS import ObjectManager
-from Products.validation.interfaces import ivalidator
+from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implements
 
 
 class IdValidator:
-    __implements__ = (ivalidator,)
+    implements(IValidator)
 
     def __init__( self, name, title='', description=''):
         self.name = name

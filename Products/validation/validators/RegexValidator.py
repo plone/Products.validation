@@ -1,4 +1,5 @@
 from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implements
 
 import re
 from types import StringType
@@ -8,7 +9,7 @@ def ignoreRE(value, expression):
     return ignore.sub('', value)
 
 class RegexValidator:
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, *args, **kw):
         self.name = name

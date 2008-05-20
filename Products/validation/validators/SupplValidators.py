@@ -3,6 +3,7 @@ from DateTime import DateTime
 from ZPublisher.HTTPRequest import FileUpload
 
 from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implements
 
 _marker = []
 
@@ -19,7 +20,7 @@ class MaxSizeValidator:
     getMaxSizeFor(fieldname) on the instance, a maxsize attribute on the field
     or a given maxsize at validator initialization.
     """
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description='', maxsize=0):
         self.name = name
@@ -68,7 +69,7 @@ class MaxSizeValidator:
 
 class DateValidator:
 
-    __implements__ = IValidator
+    implements(IValidator)
 
     def __init__(self, name, title='', description=''):
         self.name = name

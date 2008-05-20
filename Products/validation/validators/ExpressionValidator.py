@@ -24,6 +24,7 @@ $Id: __init__.py,v 1.2 2005/02/26 17:56:10 sidnei Exp $
 
 from Products.validation.interfaces.IValidator import IValidator
 from Products.PageTemplates.Expressions import getEngine
+from zope.interface import implements
 
 class ExpressionValidator:
     """ Validator for TALES Expressions
@@ -52,7 +53,7 @@ class ExpressionValidator:
        
     """
 
-    __implements__ = (IValidator,)
+    implements(IValidator)
 
     name = 'talesexpressionvalidator'
     
