@@ -1,7 +1,10 @@
 Changelog
 =========
 
-trunk - unreleased
+1.6.2 - unreleased
+------------------
+
+1.6.1 - 2008-08-30
 ------------------
 
 * Cleaned up lots of old BBB code.
