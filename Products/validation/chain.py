@@ -1,9 +1,9 @@
-from Products.validation.interfaces.IValidator import IValidator, IValidationChain
+from Products.validation.interfaces.IValidator import IValidationChain
 from zope.interface import implements
 
-from types import StringType, TupleType, ListType, UnicodeType
+from types import TupleType, ListType
 from config import validation as validationService
-from exceptions import UnknowValidatorError, FalseValidatorError, AlreadyRegisteredValidatorError
+from exceptions import ValidatorError
 
 V_REQUIRED   = 1
 V_SUFFICIENT = 2
@@ -46,13 +46,11 @@ class ValidationChain:
     def __len__(self):
         """len(obj) suppor
         """
-        assert(len(self._chain), len(self._v_mode))
         return len(self._chain)
     
     def __iter__(self):
         """Python 2.3 for i in x support
         """
-        assert(len(self._chain), len(self._v_mode))
         return iter(zip(self._chain, self._v_mode))
     
     def __cmp__(self, key):
@@ -65,7 +63,6 @@ class ValidationChain:
     def __getitem__(self, idx):
         """self[idx] support and Python 2.1 for i in x support
         """
-        assert(len(self._chain), len(self._v_mode))
         return self._chain[idx], self._v_mode[idx]
         
     def append(self, id_or_obj, mode=V_REQUIRED):
@@ -103,13 +100,11 @@ class ValidationChain:
     def setMode(self, validator, mode, position=None):
         """Set mode
         """
-        assert(mode in (V_REQUIRED, V_SUFFICIENT))
         # validator not required
         if position is None:
             self._v_mode.append(mode)
         else:
             self._v_mode.insert(position, mode)
-        assert(len(self._chain), len(self._v_mode))
 
     def setValidator(self, id_or_obj, position=None):
         """Set validator
@@ -161,37 +156,3 @@ class ValidationChain:
                             )
         else:
             return True
-
-
-def test():
-    """Little test script
-    """
-    isEmptyURL = ValidationChain('isEmptyURL',
-                                validators = (('isEmpty', V_SUFFICIENT), ('isURL', V_REQUIRED)),
-                                register=True
-                               )
-    #
-    v = validationService.validatorFor('isEmptyURL')
-    assert(v is isEmptyURL)
-    assert(v('http://www.example.org') is True)
-    assert(v('') is True)
-    assert(type(v('www.example.org')) is StringType) # error
-
-    isIntOrEmpty = ValidationChain('isIntOrEmpty')
-    isIntOrEmpty.appendSufficient('isEmpty')
-    from validators.RegexValidator import RegexValidator
-    isPosInt = RegexValidator('isInt', r'^([+])?\d+$', title='', description='')
-    isIntOrEmpty.appendRequired(isPosInt)
-    validationService.register(isIntOrEmpty)
-
-    v = validationService.validatorFor('isIntOrEmpty')
-    assert(v is isIntOrEmpty)
-    assert(v('') is True)
-    assert(v('1') is True)
-    assert(type(v('-1')) is StringType) # error
-    assert(type(v('a')) is StringType) # error
-
-test()
-
-if __name__ == '__main__':
-    test()
