@@ -19,7 +19,16 @@ setup(name='Products.validation',
       namespace_packages=['Products'],
       include_package_data=True,
       zip_safe=False,
+      extras_require=dict(
+        test=[
+            'Products.Archetypes',
+        ]
+      ),
       install_requires=[
           'setuptools',
+          'zope.interface',
+          # 'Acquisition',
+          # 'DateTime',
+          # 'Zope2',
       ],
       )

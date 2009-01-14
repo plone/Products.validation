@@ -4,6 +4,10 @@ Changelog
 trunk - unreleased
 ------------------
 
+* Declare test dependencies in an extra and fixed deprecation warnings
+  for use of Globals.
+  [hannosch]
+
 * Removed useless assert statements. Assert is not a function.
   [hannosch]
 

@@ -1,7 +1,7 @@
 from Products.validation.service import Service
 
 from Acquisition import Implicit
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from AccessControl import ClassSecurityInfo
 
 from AccessControl import ModuleSecurityInfo
