@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.6.1'
+version = '2.0'
 
 setup(name='Products.validation',
       version=version,
       description="Data validation package for Archetypes",
       long_description=open("README.txt").read() + "\n" + \
-              open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open("CHANGES.txt").read(),
       classifiers=[
         "Framework :: Zope2",
         "Operating System :: OS Independent",
@@ -27,8 +27,8 @@ setup(name='Products.validation',
       install_requires=[
           'setuptools',
           'zope.interface',
-          # 'Acquisition',
-          # 'DateTime',
-          # 'Zope2',
+          'Acquisition',
+          'DateTime',
+          'Zope2',
       ],
       )
