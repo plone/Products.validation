@@ -23,7 +23,10 @@ $Id: __init__.py,v 1.2 2005/02/26 17:56:10 sidnei Exp $
 """
 
 from Products.validation.interfaces.IValidator import IValidator
+from Products.validation.i18n import PloneMessageFactory as _
+from Products.validation.i18n import recursiveTranslate
 from Products.PageTemplates.Expressions import getEngine
+from zope.i18nmessageid import Message
 
 class ExpressionValidator:
     """ Validator for TALES Expressions
@@ -32,7 +35,7 @@ class ExpressionValidator:
     otherwise it's invalid and you get a message saying that the
     expression has errors.
 
-    
+
     >>> val=ExpressionValidator('python: int(value) == 5')
     >>> class C:i=1
     >>> c=C()
@@ -40,22 +43,22 @@ class ExpressionValidator:
     True
 
     now lets fail a test
-    >>> val(4,c) 
-    'validation failed, expr was:python: int(value) == 5'
-    
+    >>> val(4,c)
+    u'validation failed, expr was:python: int(value) == 5'
+
     It is also possible to specify the error string
-    
+
     >>> val=ExpressionValidator('python: int(value) == 5', 'value doesnt match %(value)s')
-    >>> val(4,c) 
+    >>> val(4,c)
     'value doesnt match 4'
-    
-       
+
+
     """
 
     __implements__ = (IValidator,)
 
     name = 'talesexpressionvalidator'
-    
+
     def __init__(self,expression=None,errormsg=None):
         self.expression=expression
         self.errormsg=errormsg
@@ -71,17 +74,24 @@ class ExpressionValidator:
            'args':args,
            'kwargs':kwargs,
            }
-           
+
         context=getEngine().getContext(kw)
         res=self.compiledExpression(context)
-        
+
         if res:
             return True
         else:
-            if self.errormsg:
+            if self.errormsg and type(self.errormsg) == Message:
+                #hack to support including values in i18n message, too. hopefully this works out
+                #potentially it could unintentionally overwrite already present values
+                self.errormsg.mapping = kw
+                return recursiveTranslate(self.errormsg, **kwargs)
+            elif self.errormsg:
+                # support strings as errormsg for backward compatibility
                 return self.errormsg % kw
             else:
-                return 'validation failed, expr was:'+self.expression
-           
+                msg = _(u'validation failed, expr was:$expr', mapping={'expr': self.expression})
+                return recursiveTranslate(msg, **kwargs)
+
 
 #validation.register(TALESExpressionValidator())
