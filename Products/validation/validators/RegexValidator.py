@@ -1,6 +1,7 @@
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implements
-
+from Products.validation.i18n import PloneMessageFactory as _
+from Products.validation.i18n import recursiveTranslate
 import re
 from types import StringType
 
@@ -23,8 +24,8 @@ class RegexValidator:
 
     def compileRegex(self):
         for r in self.regex_strings:
-            self.regex.append(re.compile(r))        
-    
+            self.regex.append(re.compile(r))
+
     def __getstate__(self):
         """Because copy.deepcopy and pickle.dump cannot pickle a regex pattern
         I'm using the getstate/setstate hooks to set self.regex to []
@@ -32,15 +33,16 @@ class RegexValidator:
         d = self.__dict__.copy()
         d['regex'] = []
         return d
-    
+
     def __setstate__(self, dict):
         self.__dict__.update(dict)
         self.compileRegex()
 
     def __call__(self, value, *args, **kwargs):
         if type(value) != StringType:
-            return ("Validation failed(%(name)s): %(value)s of type %(type)s, expected 'string'" %
-                    { 'name' : self.name, 'value': value, 'type' : type(value)})
+            msg =  _(u"Validation failed($name): $value of type $type, expected 'string'",
+                     mapping = { 'name' : self.name, 'value': value, 'type' : type(value)})
+            return recursiveTranslate(msg, **kwargs)
 
         ignore = kwargs.get('ignore', None)
         if ignore:
@@ -52,6 +54,8 @@ class RegexValidator:
         for r in self.regex:
             m = r.match(value)
             if not m:
-                return ("Validation failed(%(name)s): '%(value)s' %(errmsg)s" % 
-                        { 'name' : self.name, 'value': value, 'errmsg' : self.errmsg})
+                msg =  _(u"Validation failed($name): '$value' $errmsg",
+                         mapping={ 'name' : self.name, 'value': value, 'errmsg' : self.errmsg})
+
+                return recursiveTranslate(msg, **kwargs)
         return 1

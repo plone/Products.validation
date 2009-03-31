@@ -4,19 +4,21 @@ from ZPublisher.HTTPRequest import FileUpload
 
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implements
+from Products.validation.i18n import PloneMessageFactory as _
+from Products.validation.i18n import recursiveTranslate
 
 _marker = []
 
 
 class MaxSizeValidator:
-    """Tests if an upload, file or something supporting len() is smaller than a 
+    """Tests if an upload, file or something supporting len() is smaller than a
        given max size value
-       
+
     If it's a upload or file like thing it is using seek(0, 2) which means go
     to the end of the file and tell() to get the size in bytes otherwise it is
     trying to use len()
-    
-    The maxsize can be acquired from the kwargs in a call, a 
+
+    The maxsize can be acquired from the kwargs in a call, a
     getMaxSizeFor(fieldname) on the instance, a maxsize attribute on the field
     or a given maxsize at validator initialization.
     """
@@ -42,10 +44,10 @@ class MaxSizeValidator:
         else:
             # set to given default value (default defaults to 0)
             maxsize = self.maxsize
-        
+
         if not maxsize:
             return True
-        
+
         # calculate size
         elif (isinstance(value, FileUpload) or isinstance(value, file) or
               hasattr(aq_base(value), 'tell')):
@@ -61,8 +63,9 @@ class MaxSizeValidator:
         sizeMB = (size / (1024 * 1024))
 
         if sizeMB > maxsize:
-            return ("Validation failed(%(name)s: Uploaded data is too large: %(size).3fMB (max %(max)fMB)" %
-                     { 'name' : self.name, 'size' : sizeMB, 'max' : maxsize })
+            msg = _("Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)",
+                    mapping = { 'name' : self.name, 'size' : "%.3f" % sizeMB, 'max' : "%.3f" % maxsize })
+            return recursiveTranslate(msg, **kwargs)
         else:
             return True
 
@@ -78,14 +81,16 @@ class DateValidator:
 
     def __call__(self, value, *args, **kwargs):
         if not value:
-            return ("Validation failed(%s): value is "
-                    "empty (%s)." % (self.name, repr(value)))
+            msg = _(u"Validation failed($name): value is empty ($value).",
+                   mapping = {'name': self.name, 'value': repr(value)})
+            return recursiveTranslate(msg, **kwargs)
         if not isinstance(value, DateTime):
             try:
                 value = DateTime(value)
             except:
-                return ("Validation failed(%s): could not "
-                        "convert %s to a date.""" % (self.name, value))
+                msg = _(u"Validation failed($name): could not convert $value to a date.",
+                        mapping = {'name': self.name, 'value': value})
+                return recursiveTranslate(msg, **kwargs)
         return True
 
 

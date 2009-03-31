@@ -1,5 +1,7 @@
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implements
+from Products.validation.i18n import PloneMessageFactory as _
+from Products.validation.i18n import recursiveTranslate
 
 _marker = []
 
@@ -38,8 +40,9 @@ class EmptyValidator:
             return True
         else:
             if getattr(self, 'showError', False):
-                return ("Validation failed(%(name)s): '%(value)s' is not empty." %
-                       { 'name' : self.name, 'value': value})
+                msg =  _(u"Validation failed($name): '$value' is not empty.",
+                         mapping = { 'name' : self.name, 'value': str(value)})
+                return recursiveTranslate(msg, **kwargs)
             else:
                 return False
 
