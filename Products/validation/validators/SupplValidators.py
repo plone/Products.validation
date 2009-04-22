@@ -5,6 +5,7 @@ from ZPublisher.HTTPRequest import FileUpload
 from Products.validation.interfaces.IValidator import IValidator
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
+from Products.validation.i18n import safe_unicode
 
 _marker = []
 
@@ -63,7 +64,11 @@ class MaxSizeValidator:
 
         if sizeMB > maxsize:
             msg = _("Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)",
-                    mapping = { 'name' : self.name, 'size' : "%.3f" % sizeMB, 'max' : "%.3f" % maxsize })
+                    mapping = {
+                        'name' : safe_unicode(self.name),
+                        'size' : safe_unicode("%.3f" % sizeMB),
+                        'max' : safe_unicode("%.3f" % maxsize)
+                        })
             return recursiveTranslate(msg, **kwargs)
         else:
             return True
@@ -88,7 +93,7 @@ class DateValidator:
                 value = DateTime(value)
             except:
                 msg = _(u"Validation failed($name): could not convert $value to a date.",
-                        mapping = {'name': self.name, 'value': value})
+                        mapping = {'name': safe_unicode(self.name), 'value': safe_unicode(value)})
                 return recursiveTranslate(msg, **kwargs)
         return True
 

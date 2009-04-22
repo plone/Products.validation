@@ -5,6 +5,16 @@ from zope.i18nmessageid import Message
 
 PloneMessageFactory = MessageFactory('plone')
 
+def safe_unicode(value):
+    if isinstance(value, unicode):
+        return value
+    elif isinstance(value, str):
+        try:
+            return unicode(value, 'utf-8')
+        except UnicodeDecodeError:
+            return unicode(value, 'utf-8', 'ignore')
+    return str(value)
+
 
 def recursiveTranslate(message, **kwargs):
     """translates also the message mappings before translating the message.

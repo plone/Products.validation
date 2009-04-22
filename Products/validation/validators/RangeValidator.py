@@ -1,6 +1,7 @@
 from Products.validation.interfaces.IValidator import IValidator
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
+from Products.validation.i18n import safe_unicode
 
 class RangeValidator:
     __implements__ = IValidator
@@ -28,11 +29,16 @@ class RangeValidator:
             nval = float(value)
         except ValueError:
             msg = _(u"Validation failed($name): could not convert '$value' to number",
-                    mapping = { 'name' : self.name, 'value': value})
+                    mapping = { 'name' : safe_unicode(self.name), 'value': safe_unicode(value)})
             return recursiveTranslate(msg, **kwargs)
         if minval <= nval < maxval:
             return 1
 
         msg = _(u"Validation failed($name): '$value' out of range($min, $max)",
-                mapping = { 'name' : self.name, 'value': value, 'min' : minval, 'max' : maxval,})
+                mapping = {
+                    'name' : safe_unicode(self.name),
+                    'value': safe_unicode(value),
+                    'min' : safe_unicode(minval),
+                    'max' : safe_unicode(maxval),
+                    })
         return recursiveTranslate(msg, **kwargs)

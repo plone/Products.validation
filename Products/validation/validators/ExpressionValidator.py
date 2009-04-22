@@ -25,6 +25,7 @@ $Id: __init__.py,v 1.2 2005/02/26 17:56:10 sidnei Exp $
 from Products.validation.interfaces.IValidator import IValidator
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
+from Products.validation.i18n import safe_unicode
 from Products.PageTemplates.Expressions import getEngine
 from zope.i18nmessageid import Message
 
@@ -90,7 +91,8 @@ class ExpressionValidator:
                 # support strings as errormsg for backward compatibility
                 return self.errormsg % kw
             else:
-                msg = _(u'validation failed, expr was:$expr', mapping={'expr': self.expression})
+                msg = _(u'validation failed, expr was:$expr',
+                        mapping={'expr': safe_unicode(self.expression)})
                 return recursiveTranslate(msg, **kwargs)
 
 

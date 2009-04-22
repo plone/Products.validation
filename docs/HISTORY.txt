@@ -4,6 +4,11 @@ Changelog
 1.6.3 - unreleased
 ------------------
 
+* Fixed the translated error messages to use Message objects correctly. The
+  mapping attribute of Messages can only contain Unicode. Added a helper
+  method `safe_unicode` to convert non-unicode string data into Unicode.
+  [hannosch]
+
 * Fixed a SyntaxError in RangeValidator.
   [hannosch]
 
