@@ -4,11 +4,6 @@ Changelog
 2.0 - unreleased
 ----------------
 
-* Merged in translated error messages for validators from branches/1.6.
-  (see http://dev.plone.org/archetypes/changeset/10942)
-  This might break 3rd party doctests (unicode returned instead of string).
-  [fRiSi]
-
 * Cleaned up package metadata.
   [hannosch]
 
@@ -33,6 +28,25 @@ Changelog
 * Relaxed EmptyValidator requirement that REQUEST has a form.
   This closes http://dev.plone.org/plone/ticket/7346.
   [bostrick, hannosch]
+
+1.6.3 - unreleased
+------------------
+
+* Fixed the translated error messages to use Message objects correctly. The
+  mapping attribute of Messages can only contain Unicode. Added a helper
+  method `safe_unicode` to convert non-unicode string data into Unicode.
+  [hannosch]
+
+* Fixed a SyntaxError in RangeValidator.
+  [hannosch]
+
+1.6.2 - 2009-04-02
+------------------
+
+* Merged in translated error messages for validators from branches/1.6.
+  (see http://dev.plone.org/archetypes/changeset/10942)
+  This might break 3rd party doctests (unicode returned instead of string).
+  [fRiSi]
 
 1.5.1 - 2007-08-16
 ------------------
