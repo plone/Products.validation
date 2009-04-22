@@ -29,7 +29,7 @@ class RangeValidator:
         except ValueError:
             msg = _(u"Validation failed($name): could not convert '$value' to number",
                     mapping = { 'name' : self.name, 'value': value})
-            return recursiveTranslage(msg, **kwargs)
+            return recursiveTranslate(msg, **kwargs)
         if minval <= nval < maxval:
             return 1
 
