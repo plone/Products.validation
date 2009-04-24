@@ -2,7 +2,8 @@ from Products.validation.interfaces.IValidator import IValidator, IValidationCha
 
 from types import StringType, TupleType, ListType, UnicodeType
 from config import validation as validationService
-from exceptions import UnknowValidatorError, FalseValidatorError, AlreadyRegisteredValidatorError
+from exceptions import UnknowValidatorError, FalseValidatorError, \
+    AlreadyRegisteredValidatorError, ValidatorError
 
 V_REQUIRED   = 1
 V_SUFFICIENT = 2

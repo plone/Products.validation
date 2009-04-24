@@ -4,6 +4,9 @@ Changelog
 1.6.4 - unreleased
 ------------------
 
+* Fix: ValidatorError was used (at least theoretically) in chain.py
+  but not imported.
+  [maurits]
 
 1.6.3 - 2009-04-23
 ------------------
