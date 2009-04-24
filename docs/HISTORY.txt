@@ -4,6 +4,10 @@ Changelog
 1.6.4 - unreleased
 ------------------
 
+* Cut the validation short when there is only one validator and this
+  validator is 'sufficient', which means it does not need to validate.
+  [maurits]
+
 * Removed an unnecessary call on Zope startup to the test method in
   chain.py.
   [maurits]

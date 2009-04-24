@@ -128,6 +128,14 @@ class ValidationChain:
         """
         results = {}
         failed = False
+        if len(self) == 1:
+            mode = [m for (v, m) in self][0]
+            if mode == V_SUFFICIENT:
+                # There is only one validator and its mode is
+                # 'sufficient' which means it does not have to
+                # validate.  So we cut the validation short.
+                return True # validation was successful
+
         for validator, mode in self:
             name = validator.name
             result = validator(value, *args, **kwargs)
