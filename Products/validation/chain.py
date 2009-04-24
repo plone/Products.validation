@@ -191,7 +191,6 @@ def test():
     assert(type(v('-1')) is unicode) # error
     assert(type(v('a')) is unicode) # error
 
-test()
 
 if __name__ == '__main__':
     test()
