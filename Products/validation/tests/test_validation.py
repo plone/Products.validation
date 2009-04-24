@@ -73,6 +73,11 @@ class TestValidation(ATSiteTestCase):
         self.failUnlessEqual(v("a b", object()), u"Spaces are not allowed in ids")
         # TODO: more tests require a site
 
+    def test_chain(self):
+        # Run the tests in the chain module. 
+        from Products.validation.chain import test
+        test()
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

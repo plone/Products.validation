@@ -173,6 +173,8 @@ class ValidationChain:
 
 def test():
     """Little test script
+
+    See also the test_chain method in tests/test_validation.py
     """
     isEmptyURL = ValidationChain('isEmptyURL',
                                 validators = (('isEmpty', V_SUFFICIENT), ('isURL', V_REQUIRED)),
