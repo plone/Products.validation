@@ -43,7 +43,7 @@ class ValidationChain:
         return '(%s)' % ', '.join(val)
 
     def __len__(self):
-        """len(obj) suppor
+        """len(obj) support
         """
         assert(len(self._chain), len(self._v_mode))
         return len(self._chain)
@@ -95,7 +95,7 @@ class ValidationChain:
         self.insert(id_or_obj, mode=V_REQUIRED, position=0)
 
     def insertSufficient(self, id_or_obj, position=0):
-        """Inserts a validator as required at position (default 0)
+        """Inserts a validator as sufficient at position (default 0)
         """
         self.insert(id_or_obj, mode=V_SUFFICIENT, position=0)
 
