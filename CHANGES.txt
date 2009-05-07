@@ -29,7 +29,14 @@ Changelog
   This closes http://dev.plone.org/plone/ticket/7346.
   [bostrick, hannosch]
 
-1.6.3 - unreleased
+1.6.4 - unreleased
+------------------
+
+* Cut the validation short when there is only one validator and this
+  validator is 'sufficient', which means it does not need to validate.
+  [maurits]
+
+1.6.3 - 2009-04-23
 ------------------
 
 * Fixed the translated error messages to use Message objects correctly. The

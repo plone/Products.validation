@@ -44,7 +44,7 @@ class ValidationChain:
         return '(%s)' % ', '.join(val)
 
     def __len__(self):
-        """len(obj) suppor
+        """len(obj) support
         """
         return len(self._chain)
     
@@ -93,7 +93,7 @@ class ValidationChain:
         self.insert(id_or_obj, mode=V_REQUIRED, position=0)
 
     def insertSufficient(self, id_or_obj, position=0):
-        """Inserts a validator as required at position (default 0)
+        """Inserts a validator as sufficient at position (default 0)
         """
         self.insert(id_or_obj, mode=V_SUFFICIENT, position=0)
 
@@ -123,6 +123,14 @@ class ValidationChain:
         """
         results = {}
         failed = False
+        if len(self) == 1:
+            mode = [m for (v, m) in self][0]
+            if mode == V_SUFFICIENT:
+                # There is only one validator and its mode is
+                # 'sufficient' which means it does not have to
+                # validate.  So we cut the validation short.
+                return True # validation was successful
+
         for validator, mode in self:
             name = validator.name
             result = validator(value, *args, **kwargs)
