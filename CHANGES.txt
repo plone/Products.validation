@@ -36,6 +36,13 @@ Changelog
   validator is 'sufficient', which means it does not need to validate.
   [maurits]
 
+* Removed an unnecessary call on Zope startup to the test method in chain.py.
+  [maurits]
+
+* Fix: ValidatorError was used (at least theoretically) in chain.py
+  but not imported.
+  [maurits]
+
 1.6.3 - 2009-04-23
 ------------------
 
