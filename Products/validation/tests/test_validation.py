@@ -13,6 +13,12 @@ class TestValidation(ATSiteTestCase):
         self.failUnlessEqual(v('10', 1, 20), 1)
         self.failUnlessEqual(v(0, 4, 5), u"Validation failed(inNumericRange): '0' out of range(4, 5)")
 
+    def test_isDecimal(self):
+        v = validation.validatorFor('isDecimal')
+        self.failUnlessEqual(v('1.5'), 1)
+        self.failUnlessEqual(v('1,5'), 1)
+        self.failUnlessEqual(v('NaN'), u"Validation failed(isDecimal): 'NaN' is not a decimal number.")
+
     def test_isPrintable(self):
         v = validation.validatorFor('isPrintable')
         self.failUnlessEqual(v('text'), 1)
@@ -41,8 +47,6 @@ class TestValidation(ATSiteTestCase):
         self.failUnlessEqual(v('fish://tiran:password@myserver/~/'), 1)
         self.failUnlessEqual(v('http://\n'), u"Validation failed(isURL): 'http://\n' is not a valid url.")
         self.failIfEqual(v('../foo/bar'), 1)
-
-
 
     def test_isEmail(self):
         v = validation.validatorFor('isEmail')

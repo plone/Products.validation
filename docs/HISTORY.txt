@@ -4,6 +4,9 @@ Changelog
 1.6.4 - unreleased
 ------------------
 
+* Accept comma in isDecimal.
+  [ccrownhart, jnelson, tesdal]
+
 * Cut the validation short when there is only one validator and this
   validator is 'sufficient', which means it does not need to validate.
   [maurits]
