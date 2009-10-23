@@ -14,7 +14,7 @@ EMAIL_RE = "([0-9a-zA-Z_&.'+-]+!)*[0-9a-zA-Z_&.'+-]+@(([0-9a-zA-Z]([0-9a-zA-Z-]*
 baseValidators = [
     RangeValidator('inNumericRange', title='', description=''),
     RegexValidator('isDecimal',
-                   r'^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$',
+                   r'^([+-]?)(?=\d|(\.|\,)\d)\d*((\,|\.)\d*)?([Ee]([+-]?\d+))?$',
                    title='', description='',
                    errmsg=_(u'is not a decimal number.')),
     RegexValidator('isInt', r'^([+-])?\d+$', title='', description='',
