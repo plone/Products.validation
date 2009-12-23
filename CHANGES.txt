@@ -4,6 +4,8 @@ Changelog
 2.0b1 - Unreleased
 ------------------
 
+- Added missing zope.i18n(messageid) dependencies.
+  [hannosch]
 
 2.0a1 - 2009-11-13
 ------------------

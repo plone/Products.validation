@@ -25,6 +25,8 @@ setup(name='Products.validation',
       ),
       install_requires=[
           'setuptools',
+          'zope.i18n',
+          'zope.i18nmessageid',
           'zope.interface',
           'Acquisition',
           'DateTime',
