@@ -11,7 +11,7 @@ security = ModuleSecurityInfo('Products.validation.config')
 security.declarePublic('validation')
 
 class ZService(Service, Implicit):
-    """Service running in a zope site - exposes some methods""" 
+    """Service running in a zope site - exposes some methods"""
 
     security = ClassSecurityInfo()
 
@@ -19,4 +19,4 @@ class ZService(Service, Implicit):
     security.declarePublic('__call__')
     security.declarePublic('validatorFor')
 
-InitializeClass(ZService) 
+InitializeClass(ZService)
