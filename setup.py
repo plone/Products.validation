@@ -21,7 +21,7 @@ setup(name='Products.validation',
       zip_safe=False,
       extras_require=dict(
         test=[
-            'Products.Archetypes',
+            'Products.Archetypes[test]',
         ]
       ),
       install_requires=[

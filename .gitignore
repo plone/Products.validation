@@ -1,0 +1,7 @@
+bin/
+lib/
+include/
+*.egg-info
+.installed.cfg
+bootstrap.py
+develop-eggs/
