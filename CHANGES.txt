@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
-------------------
+2.0.1.cirb (2015-02-16)
+-----------------------
 
 - Accept base domain names longer than 6 chars like .brussels
 [gotcha]

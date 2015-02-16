@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '2.0.1'
+version = '2.0.1.cirb'
 
 setup(name='Products.validation',
       version=version,
