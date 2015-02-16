@@ -43,6 +43,7 @@ class TestValidation(ATSiteTestCase):
         v = validation.validatorFor('isURL')
         self.failUnlessEqual(v('http://foo.bar:8080/manage'), 1)
         self.failUnlessEqual(v('https://foo.bar:8080/manage'), 1)
+        self.failUnlessEqual(v('https://be.brussels:8080/manage'), 1)
         self.failUnlessEqual(v('irc://tiran@irc.freenode.net:6667/#plone'), 1)
         self.failUnlessEqual(v('fish://tiran:password@myserver/~/'), 1)
         self.failUnlessEqual(v('http://\n'), u"Validation failed(isURL): 'http://\n' is not a valid url.")
@@ -51,12 +52,14 @@ class TestValidation(ATSiteTestCase):
     def test_isEmail(self):
         v = validation.validatorFor('isEmail')
         self.failUnlessEqual(v('test@test.com'), 1)
+        self.failUnlessEqual(v('test@be.brussels'), 1)
         self.failIfEqual(v('@foo.bar'), 1)
         self.failUnlessEqual(v('me'), u"Validation failed(isEmail): 'me' is not a valid email address.")
 
     def test_isMailto(self):
         v = validation.validatorFor('isMailto')
         self.failUnlessEqual(v('mailto:test@test.com'), 1)
+        self.failUnlessEqual(v('mailto:test@be.brussels'), 1)
         self.failIfEqual(v('test@test.com'), 1)
         self.failIfEqual(v('mailto:@foo.bar'), 1)
         self.failIfEqual(v('@foo.bar'), 1)

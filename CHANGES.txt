@@ -1,9 +1,11 @@
 Changelog
 =========
 
-2.0.1 - unreleased
+2.0.1 (unreleased)
 ------------------
 
+- Accept base domain names longer than 6 chars like .brussels
+[gotcha]
 
 2.0 - 2010-07-18
 ----------------
