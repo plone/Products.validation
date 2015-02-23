@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 (unreleased)
+2.0.1 (2015-02-23)
 ------------------
 
 - Accept base domain names longer than 6 chars like .brussels
