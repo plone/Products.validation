@@ -5,14 +5,14 @@ from Acquisition import aq_get
 from zExceptions import BadRequest
 from OFS import ObjectManager
 from Products.validation.interfaces.IValidator import IValidator
-from zope.interface import implements
+from zope.interface import implementer
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
 
 
+@implementer(IValidator)
 class IdValidator:
-    implements(IValidator)
 
     def __init__( self, name, title='', description=''):
         self.name = name

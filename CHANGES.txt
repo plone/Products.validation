@@ -4,8 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Use zope.interface decorator.
+  [gforcada]
 
 2.0.1 (2015-02-23)
 ------------------
@@ -284,4 +284,3 @@ post 1.3.4-final02 (2006-01-15)
 --------------------
 
 - Nothing changed
-

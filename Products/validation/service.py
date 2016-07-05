@@ -1,12 +1,12 @@
 from Products.validation.interfaces.IValidationService import IValidationService
 from Products.validation.interfaces.IValidator import IValidator
-from zope.interface import implements
+from zope.interface import implementer
 
 from exceptions import UnknowValidatorError, FalseValidatorError, AlreadyRegisteredValidatorError
 from types import StringType, StringTypes
 
+@implementer(IValidationService)
 class Service:
-    implements(IValidationService)
 
     def __init__(self):
         self._validator = {}
