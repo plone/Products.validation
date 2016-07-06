@@ -1,5 +1,5 @@
 from Products.validation.interfaces.IValidator import IValidationChain
-from zope.interface import implements
+from zope.interface import implementer
 
 from types import TupleType, ListType
 from config import validation as validationService
@@ -9,10 +9,10 @@ V_REQUIRED   = 1
 V_SUFFICIENT = 2
 
 
+@implementer(IValidationChain)
 class ValidationChain:
     """
     """
-    implements(IValidationChain)
 
     def __init__(self, name, title='', description='', validators=(),
                  register=False):

@@ -1,4 +1,4 @@
-from zope.interface import implements
+from zope.interface import implementer
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
@@ -7,8 +7,8 @@ from Products.validation.interfaces.IValidator import IValidator
 _marker = []
 
 
+@implementer(IValidator)
 class EmptyValidator:
-    implements(IValidator)
 
     def __init__(self, name, title='', description='', showError=True):
         self.name = name
