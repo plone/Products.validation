@@ -4,6 +4,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+Bug fixes:
+
 - Use zope.interface decorator.
   [gforcada]
 
