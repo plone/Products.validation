@@ -1,11 +1,9 @@
-
-from Testing import ZopeTestCase
-from Products.Archetypes.tests.atsitetestcase import ATSiteTestCase
-from Testing.ZopeTestCase import doctest
+import unittest
+import doctest
 
 from Products.validation import validation
 
-class TestValidation(ATSiteTestCase):
+class TestValidation(unittest.TestCase):
 
     def test_inNumericRange(self):
         v = validation.validatorFor('inNumericRange')
@@ -78,7 +76,6 @@ class TestValidation(ATSiteTestCase):
     def test_isValidId(self):
         v = validation.validatorFor("isValidId")
         self.failUnlessEqual(v("a b", object()), u"Spaces are not allowed in ids")
-        # TODO: more tests require a site
 
 
 def test_suite():
