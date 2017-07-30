@@ -45,8 +45,8 @@ class ExpressionValidator:
     True
 
     now lets fail a test
-    >>> val(4,c)
-    u'validation failed, expr was:python: int(value) == 5'
+    >>> str(val(4,c))
+    'validation failed, expr was:python: int(value) == 5'
 
     It is also possible to specify the error string
 

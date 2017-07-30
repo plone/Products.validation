@@ -1,7 +1,10 @@
-import unittest
-import doctest
-
+# -*- coding: utf-8 -*-
 from Products.validation import validation
+
+import doctest
+import six
+import unittest
+
 
 class TestValidation(unittest.TestCase):
 
@@ -20,8 +23,18 @@ class TestValidation(unittest.TestCase):
     def test_isPrintable(self):
         v = validation.validatorFor('isPrintable')
         self.assertEqual(v('text'), 1)
-        self.assertEqual(v('\u203'), u"Validation failed(isPrintable): '\\u203' contains unprintable characters")
-        self.assertEqual(v(10), u"Validation failed(isPrintable): 10 of type <type 'int'>, expected 'string'")
+        self.assertEqual(
+            v('\\u203'),
+            u"Validation failed(isPrintable): '\\u203' contains unprintable characters"
+        )
+        if six.PY3:
+            int_type = "<class 'int'>"
+        else:
+            int_type = "<type 'int'>"
+        self.assertEqual(
+            v(10),
+            u"Validation failed(isPrintable): 10 of type {0}, expected 'string'".format(int_type)
+        )
 
     def test_isSSN(self):
         v = validation.validatorFor('isSSN')
@@ -67,7 +80,7 @@ class TestValidation(unittest.TestCase):
     def test_isUnixLikeName(self):
         v = validation.validatorFor('isUnixLikeName')
         self.assertEqual(v('abcd'), 1)
-        self.failUnless(v('a_123456'), 1)
+        self.assertTrue(v('a_123456'), 1)
         self.assertNotEqual(v('123'), 1)
         self.assertNotEqual(v('ab.c'), 1)
         self.assertEqual(v('ab,c'), u"Validation failed(isUnixLikeName): 'ab,c' this name is not a valid identifier")
