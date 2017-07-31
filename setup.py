@@ -6,7 +6,7 @@ setup(
     name='Products.validation',
     version=version,
     description="Data validation package for Zope",
-    long_description=(open("README.txt").read() + "\n" +
+    long_description=(open("README.rst").read() + "\n" +
                       open("CHANGES.txt").read()),
     classifiers=[
         "Framework :: Zope2",
