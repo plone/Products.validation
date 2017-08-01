@@ -19,7 +19,6 @@
 #
 ##############################################################################
 """
-$Id: __init__.py,v 1.2 2005/02/26 17:56:10 sidnei Exp $
 """
 
 from Products.validation.interfaces.IValidator import IValidator
@@ -46,8 +45,8 @@ class ExpressionValidator:
     True
 
     now lets fail a test
-    >>> val(4,c)
-    u'validation failed, expr was:python: int(value) == 5'
+    >>> str(val(4,c))
+    'validation failed, expr was:python: int(value) == 5'
 
     It is also possible to specify the error string
 

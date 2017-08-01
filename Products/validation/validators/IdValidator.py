@@ -40,11 +40,11 @@ class IdValidator:
                         mapping = {'id': safe_unicode(id)})
                 return recursiveTranslate(msg, **kwargs)
 
-            # objet manager test
+            # object manager test
             # XXX: This is f***ed
             try:
                 ObjectManager.checkValidId(self, id, allow_dup=1)
-            except BadRequest, m:
+            except BadRequest as m:
                 return str(m)
             return 1
 

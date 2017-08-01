@@ -1,12 +1,13 @@
+from Products.validation.config import validation as validationService
+from Products.validation.exceptions import ValidatorError
 from Products.validation.interfaces.IValidator import IValidationChain
 from zope.interface import implementer
 
-from types import TupleType, ListType
-from config import validation as validationService
-from exceptions import ValidatorError
 
 V_REQUIRED   = 1
 V_SUFFICIENT = 2
+TupleType = type((0,1))
+ListType = type([])
 
 
 @implementer(IValidationChain)
@@ -140,7 +141,7 @@ class ValidationChain:
                 elif mode == V_REQUIRED:
                     continue    # go on
                 else:
-                    raise ValidatorError, 'Unknown mode %s' % mode
+                    raise ValidatorError('Unknown mode {0}'.format(mode))
             else:
                 if mode == V_SUFFICIENT:
                     if isinstance(result, basestring):
@@ -154,7 +155,7 @@ class ValidationChain:
                     failed = True
                     break    # fatal error, stop and fail
                 else:
-                    raise ValidatorError, 'Unknown mode %s' % mode
+                    raise ValidatorError('Unknown mode {0}'.format(mode))
 
         if failed:
             return '\n'.join([

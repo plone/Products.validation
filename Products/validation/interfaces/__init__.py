@@ -1,3 +1,3 @@
 # backward compatibility
-from IValidator import IValidator as ivalidator
-from IValidationService import IValidationService as ivalidationService
+from Products.validation.interfaces.IValidator import IValidator as ivalidator
+from Products.validation.interfaces.IValidationService import IValidationService as ivalidationService

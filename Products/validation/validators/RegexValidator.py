@@ -1,14 +1,17 @@
 from Products.validation.interfaces.IValidator import IValidator
-from zope.interface import implementer
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
+from zope.interface import implementer
+
 import re
-from types import StringType
+import six
+
 
 def ignoreRE(value, expression):
     ignore = re.compile(expression)
     return ignore.sub('', value)
+
 
 @implementer(IValidator)
 class RegexValidator:
@@ -40,7 +43,7 @@ class RegexValidator:
         self.compileRegex()
 
     def __call__(self, value, *args, **kwargs):
-        if type(value) != StringType:
+        if not isinstance(value, str):
             msg =  _(u"Validation failed($name): $value of type $type, expected 'string'",
                      mapping = {
                         'name' : safe_unicode(self.name),

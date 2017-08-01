@@ -1,9 +1,9 @@
 bin/
-lib/
+lib*
 include/
 *.egg-info
 .installed.cfg
 bootstrap.py
 develop-eggs/
-*.pyc
-*.pyo
+*.py[co]
+pip-selfcheck.json

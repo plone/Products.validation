@@ -10,11 +10,13 @@ Breaking changes:
 
 New features:
 
-- *add item here*
+- Python 3 compatibility
+  [tomgross]
 
 Bug fixes:
 
-- *add item here*
+- Remove unnecessary test dependencies
+  [tomgross]
 
 
 2.0.2 (2016-08-08)
