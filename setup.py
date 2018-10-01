@@ -24,7 +24,7 @@ setup(
     keywords='Zope validation regex email',
     author='Benjamin Saller',
     author_email='plone-developers@lists.sourceforge.net',
-    url='https://pypi.python.org/pypi/Products.validation',
+    url='https://pypi.org/project/Products.validation',
     license='GPL',
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['Products'],
