@@ -7,7 +7,7 @@ setup(
     version=version,
     description="Data validation package for Zope",
     long_description=(open("README.rst").read() + "\n" +
-                      open("CHANGES.txt").read()),
+                      open("CHANGES.rst").read()),
     classifiers=[
         "Framework :: Zope2",
         "Operating System :: OS Independent",
