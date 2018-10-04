@@ -6,8 +6,8 @@ setup(
     name='Products.validation',
     version=version,
     description="Data validation package for Archetypes",
-    long_description=(open("README.txt").read() + "\n" +
-                      open("CHANGES.txt").read()),
+    long_description=(open("README.rst").read() + "\n" +
+                      open("CHANGES.rst").read()),
     classifiers=[
         "Framework :: Zope2",
         "Operating System :: OS Independent",
