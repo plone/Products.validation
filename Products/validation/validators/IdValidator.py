@@ -45,12 +45,20 @@ class IdValidator:
         self.description = description
 
     def __call__(self, id, instance, *args, **kwargs):
-        try:
-            # try to use the check_id script of CMFPlone
-            # Import here to avoid hard dependency and possible cyclic imports.
-            from Products.CMFPlone.utils import check_id
-        except ImportError:
-            check_id = fallback_check_id
+        # Try to get a check_id from the instance,
+        # for example a Python skin script or a method,
+        # like Products/CMFPlone/skins/plone_scripts/check_id.py
+        # until Plone 5.1.
+        check_id = aq_get(instance, 'check_id', None, 1)
+        if check_id is None:
+            try:
+                # try to use the check_id script of CMFPlone
+                # Import here to avoid a hard dependency and
+                # possible cyclic imports.
+                from Products.CMFPlone.utils import check_id
+            except ImportError:
+                # Use our own fallback function.
+                check_id = fallback_check_id
         result = check_id(instance, id, **kwargs)
         return result or 1
 

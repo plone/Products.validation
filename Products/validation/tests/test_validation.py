@@ -6,6 +6,37 @@ import six
 import unittest
 
 
+class Dummy(object):
+    """Dummy object with basic zope-like containment."""
+
+    def __init__(self, _id=None):
+        self.id = _id
+        self._ids = []
+        self._items = []
+
+    def add(self, item):
+        self._ids.append(item.id)
+        self._items.append(item)
+        item.__parent__ = self
+
+    def getId(self):
+        return self.id
+
+    def getParentNode(self):
+        return self.__parent__
+
+    def objectIds(self):
+        return self._ids
+
+    def __getattr__(self, name, default=None):
+        if name in self._ids:
+            for obj in self._items:
+                if obj.getId() == name:
+                    return obj
+            return default
+        return super(Dummy, self).__getattr__(name, default)
+
+
 class TestValidation(unittest.TestCase):
 
     def test_inNumericRange(self):
@@ -87,8 +118,45 @@ class TestValidation(unittest.TestCase):
         self.assertNotEqual(v('aaaaaaaab'), 1) # too long
 
     def test_isValidId(self):
-        v = validation.validatorFor("isValidId")
-        self.assertEqual(v("a b", object()), u"Spaces are not allowed in ids")
+        from Products.validation.validators import IdValidator
+
+        def dummy_checker(instance, _id):
+            if _id == 'good':
+                return 1
+            return 'bad id'
+
+        v = validation.validatorFor('isValidId')
+        obj = Dummy('foo')
+        parent = Dummy('parent')
+        parent.add(obj)
+
+        # Use a specific checker.
+        obj.check_id = dummy_checker
+        self.assertEqual(v('good', obj), 1)
+        self.assertEqual(v('a b', obj), 'bad id')
+
+        # Use the fallback_check_id.
+        obj.check_id = IdValidator.fallback_check_id
+        v = validation.validatorFor('isValidId')
+        self.assertEqual(v('good', obj), 1)
+        self.assertEqual(v('foo', obj), 1)
+        self.assertEqual(v('a b', obj), u'Spaces are not allowed in ids')
+
+        # Use no explicit checker, falling back to check_id from Plone,
+        # if available.
+        try:
+            from Products.CMFPlone.utils import check_id
+        except ImportError:
+            return
+
+        obj.check_id = None
+        v = validation.validatorFor('isValidId')
+        self.assertEqual(v('good', obj), 1)
+        self.assertEqual(v('foo', obj), 1)
+        # Plone seems to allow spaces.
+        self.assertEqual(v('a b', obj), 1)
+        # Some ids are forbidden in Plone.  We get an i18n message back.
+        self.assertEqual(v('layout', obj), '${name} is reserved.')
 
 
 def test_suite():
