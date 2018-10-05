@@ -22,11 +22,11 @@ class IdValidator:
     def __call__(self, id, instance, *args, **kwargs):
         try:
             # try to use the check_id script of CMFPlone
-            check_id = aq_get(instance, 'check_id', None, 1)
-            if check_id is None:
-                raise AttributeError('check_id script not found')
-            return check_id(id, required=kwargs.get('required', 0)) or 1
-        except AttributeError:
+            # Import here to avoid hard dependency and possible cyclic imports.
+            from Products.CMFPlone.utils import check_id
+            result = check_id(instance, id, required=kwargs.get('required', 0))
+            return result or 1
+        except ImportError:
             # space test
             if ' ' in id:
                 msg =  _(u'Spaces are not allowed in ids')
