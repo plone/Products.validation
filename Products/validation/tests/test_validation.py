@@ -36,6 +36,11 @@ class Dummy(object):
             return default
         return super(Dummy, self).__getattr__(name, default)
 
+    def dummy_checker(self, _id, **kwargs):
+        if _id == 'good':
+            return 1
+        return 'bad id'
+
 
 class TestValidation(unittest.TestCase):
 
@@ -120,18 +125,13 @@ class TestValidation(unittest.TestCase):
     def test_isValidId(self):
         from Products.validation.validators import IdValidator
 
-        def dummy_checker(instance, _id):
-            if _id == 'good':
-                return 1
-            return 'bad id'
-
         v = validation.validatorFor('isValidId')
         obj = Dummy('foo')
         parent = Dummy('parent')
         parent.add(obj)
 
         # Use a specific checker.
-        obj.check_id = dummy_checker
+        obj.check_id = obj.dummy_checker
         self.assertEqual(v('good', obj), 1)
         self.assertEqual(v('a b', obj), 'bad id')
 
