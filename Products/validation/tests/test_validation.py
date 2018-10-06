@@ -150,6 +150,13 @@ class TestValidation(unittest.TestCase):
             return
 
         obj.check_id = None
+        # Problem: on Plone 5.1, utils.check_id simply calls the script,
+        # which we have just set to None for testing purposes, so it will fail.
+        # So only test this in Plone 5.2+, not on 5.1.
+        import pkg_resources
+        version = pkg_resources.get_distribution('Products.CMFPlone').version
+        if version.startswith('5.1'):
+            return
         v = validation.validatorFor('isValidId')
         self.assertEqual(v('good', obj), 1)
         self.assertEqual(v('foo', obj), 1)
