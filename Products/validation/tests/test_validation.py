@@ -122,48 +122,65 @@ class TestValidation(unittest.TestCase):
         self.assertEqual(v('ab,c'), u"Validation failed(isUnixLikeName): 'ab,c' this name is not a valid identifier")
         self.assertNotEqual(v('aaaaaaaab'), 1) # too long
 
-    def test_isValidId(self):
+    def test_isValidId_basic(self):
         from Products.validation.validators import IdValidator
 
         v = validation.validatorFor('isValidId')
         obj = Dummy('foo')
-        parent = Dummy('parent')
-        parent.add(obj)
 
         # Use a specific checker.
         obj.check_id = obj.dummy_checker
         self.assertEqual(v('good', obj), 1)
         self.assertEqual(v('a b', obj), 'bad id')
 
-        # Use the fallback_check_id.
-        obj.check_id = IdValidator.fallback_check_id
-        v = validation.validatorFor('isValidId')
-        self.assertEqual(v('good', obj), 1)
-        self.assertEqual(v('foo', obj), 1)
-        self.assertEqual(v('a b', obj), u'Spaces are not allowed in ids')
-
-        # Use no explicit checker, falling back to check_id from Plone,
-        # if available.
+    def test_isValidId_plone(self):
+        from Products.validation.validators import IdValidator
         try:
             from Products.CMFPlone.utils import check_id
         except ImportError:
             return
-
-        obj.check_id = None
-        # Problem: on Plone 5.1, utils.check_id simply calls the script,
-        # which we have just set to None for testing purposes, so it will fail.
+        # Problem: on Plone 5.1, utils.check_id simply looks for a
+        # check_id script/attribute on the context.  This will fail.
         # So only test this in Plone 5.2+, not on 5.1.
         import pkg_resources
         version = pkg_resources.get_distribution('Products.CMFPlone').version
         if version.startswith('5.1'):
             return
+
         v = validation.validatorFor('isValidId')
+        obj = Dummy('foo')
+        parent = Dummy('parent')
+        parent.add(obj)
+
         self.assertEqual(v('good', obj), 1)
         self.assertEqual(v('foo', obj), 1)
         # Plone seems to allow spaces.
         self.assertEqual(v('a b', obj), 1)
         # Some ids are forbidden in Plone.  We get an i18n message back.
         self.assertEqual(v('layout', obj), '${name} is reserved.')
+
+    def test_isValidId_fallback(self):
+        from Products.validation.validators import IdValidator
+        # We can only check this if utils.check_id gives an ImportError.
+        try:
+            from Products.CMFPlone.utils import check_id as plone_check_id
+        except ImportError:
+            plone_check_id = None
+        else:
+            import Products.CMFPlone.utils
+            del Products.CMFPlone.utils.check_id
+
+        try:
+            v = validation.validatorFor('isValidId')
+            obj = Dummy('foo')
+            parent = Dummy('parent')
+            parent.add(obj)
+            self.assertEqual(v('good', obj), 1)
+            self.assertEqual(v('foo', obj), 1)
+            self.assertEqual(v('a b', obj), u'Spaces are not allowed in ids')
+        finally:
+            if plone_check_id:
+                Products.CMFPlone.utils.check_id = plone_check_id
 
 
 def test_suite():
