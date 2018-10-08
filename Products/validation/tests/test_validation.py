@@ -8,6 +8,7 @@ import unittest
 
 class Dummy(object):
     """Dummy object with basic zope-like containment."""
+    portal_type = 'dummy'  # needed in Plone 5.2 test
 
     def __init__(self, _id=None):
         self.id = _id
@@ -27,6 +28,9 @@ class Dummy(object):
 
     def objectIds(self):
         return self._ids
+
+    def __contains__(self, id):
+        return id in self._ids
 
     def __getattr__(self, name, default=None):
         if name in self._ids:
@@ -149,8 +153,10 @@ class TestValidation(unittest.TestCase):
 
         self.assertEqual(v('good', obj), 1)
         self.assertEqual(v('foo', obj), 1)
+        # This error message would be translated usually, but we do not care.
         self.assertEqual(
-            v('foo', obj2), 'Id foo conflicts with an existing item.')
+            v('foo', obj2),
+            u'There is already an item named ${name} in this folder.')
         # Plone seems to allow spaces.
         self.assertEqual(v('a b', obj), 1)
         # Some ids are forbidden in Plone.  We get an i18n message back.
