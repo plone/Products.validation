@@ -8,6 +8,14 @@ Changelog
 
 .. towncrier release notes start
 
+2.1.1 (2018-11-01)
+------------------
+
+Bug fixes:
+
+
+- Use new utils.check_id from CMFPlone. [maurits] (#4)
+
 
 2.1 (2017-08-27)
 ----------------
