@@ -1,10 +1,9 @@
+from AccessControl import ClassSecurityInfo
+from AccessControl import ModuleSecurityInfo
+from AccessControl.class_init import InitializeClass
+from Acquisition import Implicit
 from Products.validation.service import Service
 
-from Acquisition import Implicit
-from App.class_init import InitializeClass
-from AccessControl import ClassSecurityInfo
-
-from AccessControl import ModuleSecurityInfo
 
 # make validator service public
 security = ModuleSecurityInfo('Products.validation.config')
