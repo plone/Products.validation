@@ -1,2 +1,0 @@
-Fixes #6 long deprecated InitializeClass import which did not work  in Zope 5.
-[jensens]

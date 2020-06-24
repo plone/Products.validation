@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+2.1.3 (2020-06-24)
+------------------
+
+Bug fixes:
+
+
+- Fixes #6 long deprecated InitializeClass import which did not work  in Zope 5.
+  [jensens] (#6)
+
+
 2.1.2 (2020-04-23)
 ------------------
 
