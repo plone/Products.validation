@@ -39,7 +39,7 @@ class ExpressionValidator:
     expression has errors.
 
 
-    >>> val=ExpressionValidator('python: int(value) == 5')
+    >>> val=ExpressionValidator("python: int(value) == 5")
     >>> class C:i=1
     >>> c=C()
     >>> val(5,c) is True
@@ -51,9 +51,9 @@ class ExpressionValidator:
 
     It is also possible to specify the error string
 
-    >>> val=ExpressionValidator('python: int(value) == 5', 'value doesnt match %(value)s')
+    >>> val=ExpressionValidator("python: int(value) == 5", "value does not match %(value)s")
     >>> val(4,c)
-    'value doesnt match 4'
+    'value does not match 4'
 
 
     """
