@@ -1,5 +1,6 @@
 from Acquisition import aq_base
 from DateTime import DateTime
+from io import TextIOWrapper
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
@@ -52,7 +53,7 @@ class MaxSizeValidator:
         # calculate size
         elif (
             isinstance(value, FileUpload)
-            or isinstance(value, file)
+            or isinstance(value, TextIOWrapper)
             or hasattr(aq_base(value), "tell")
         ):
             value.seek(0, 2)  # eof

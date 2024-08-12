@@ -49,12 +49,26 @@ class ValidationChain:
         """Python 2.3 for i in x support"""
         return iter(zip(self._chain, self._v_mode))
 
-    def __cmp__(self, key):
-        if isinstance(key, ValidationChain):
-            str = repr(key)
+    def __eq__(self, other):
+        if isinstance(other, ValidationChain):
+            value = repr(other)
         else:
-            str = key
-        return cmp(repr(self), str)
+            value = other
+        return repr(self) == value
+
+    def __lt__(self, other):
+        if isinstance(other, ValidationChain):
+            value = repr(other)
+        else:
+            value = other
+        return repr(self) < value
+
+    def __gt__(self, other):
+        if isinstance(other, ValidationChain):
+            value = repr(other)
+        else:
+            value = other
+        return repr(self) > value
 
     def __getitem__(self, idx):
         """self[idx] support and Python 2.1 for i in x support"""
@@ -129,12 +143,12 @@ class ValidationChain:
                     raise ValidatorError(f"Unknown mode {mode}")
             else:
                 if mode == V_SUFFICIENT:
-                    if isinstance(result, basestring):
+                    if isinstance(result, (str, bytes)):
                         # don't log if validator doesn't return an error msg
                         results[name] = result
                     continue  # no fatal error, go on
                 elif mode == V_REQUIRED:
-                    if isinstance(result, basestring):
+                    if isinstance(result, (str, bytes)):
                         # don't log if validator doesn't return an error msg
                         results[name] = result
                     failed = True
