@@ -13,5 +13,4 @@ class IValidator(Interface):
 
 
 class IValidationChain(IValidator):
-    """Marker interface for a chain
-    """
+    """Marker interface for a chain"""

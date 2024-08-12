@@ -9,7 +9,7 @@ import re
 
 def ignoreRE(value, expression):
     ignore = re.compile(expression)
-    return ignore.sub('', value)
+    return ignore.sub("", value)
 
 
 @implementer(IValidator)
@@ -17,11 +17,11 @@ class RegexValidator:
 
     def __init__(self, name, *args, **kw):
         self.name = name
-        self.title = kw.get('title', name)
-        self.description = kw.get('description', '')
-        self.errmsg = kw.get('errmsg', 'fails tests of %s' % name)
+        self.title = kw.get("title", name)
+        self.description = kw.get("description", "")
+        self.errmsg = kw.get("errmsg", "fails tests of %s" % name)
         self.regex_strings = args
-        self.ignore = kw.get('ignore', None)
+        self.ignore = kw.get("ignore", None)
         self.regex = []
         self.compileRegex()
 
@@ -34,7 +34,7 @@ class RegexValidator:
         I'm using the getstate/setstate hooks to set self.regex to []
         """
         d = self.__dict__.copy()
-        d['regex'] = []
+        d["regex"] = []
         return d
 
     def __setstate__(self, dict):
@@ -43,30 +43,33 @@ class RegexValidator:
 
     def __call__(self, value, *args, **kwargs):
         if not isinstance(value, str):
-            msg =  _("Validation failed($name): $value of type $type, expected 'string'",
-                     mapping = {
-                        'name' : safe_unicode(self.name),
-                        'value': safe_unicode(value),
-                        'type' : safe_unicode(type(value))
-                        })
+            msg = _(
+                "Validation failed($name): $value of type $type, expected 'string'",
+                mapping={
+                    "name": safe_unicode(self.name),
+                    "value": safe_unicode(value),
+                    "type": safe_unicode(type(value)),
+                },
+            )
             return recursiveTranslate(msg, **kwargs)
 
-        ignore = kwargs.get('ignore', None)
+        ignore = kwargs.get("ignore", None)
         if ignore:
             value = ignoreRE(value, ignore)
         elif self.ignore:
             value = ignoreRE(value, self.ignore)
 
-
         for r in self.regex:
             m = r.match(value)
             if not m:
-                msg =  _("Validation failed($name): '$value' $errmsg",
-                         mapping={
-                            'name' : safe_unicode(self.name),
-                            'value': safe_unicode(value),
-                            'errmsg' : safe_unicode(self.errmsg)
-                            })
+                msg = _(
+                    "Validation failed($name): '$value' $errmsg",
+                    mapping={
+                        "name": safe_unicode(self.name),
+                        "value": safe_unicode(value),
+                        "errmsg": safe_unicode(self.errmsg),
+                    },
+                )
 
                 return recursiveTranslate(msg, **kwargs)
         return 1

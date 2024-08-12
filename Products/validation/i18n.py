@@ -3,7 +3,8 @@ from zope.i18nmessageid import Message
 from zope.i18nmessageid import MessageFactory
 
 
-PloneMessageFactory = MessageFactory('plone')
+PloneMessageFactory = MessageFactory("plone")
+
 
 def safe_unicode(value):
     return value
@@ -14,7 +15,7 @@ def recursiveTranslate(message, **kwargs):
     if kwargs['REQUEST'] is None, return the message untranslated
     """
 
-    request = kwargs.get('REQUEST',None)
+    request = kwargs.get("REQUEST", None)
 
     map = message.mapping
     if map:

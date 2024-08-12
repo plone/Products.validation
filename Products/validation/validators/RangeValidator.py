@@ -8,7 +8,7 @@ from zope.interface import implementer
 @implementer(IValidator)
 class RangeValidator:
 
-    def __init__(self, name, minval=0.0, maxval=0.0, title='', description=''):
+    def __init__(self, name, minval=0.0, maxval=0.0, title="", description=""):
         self.name = name
         self.minval = minval
         self.maxval = maxval
@@ -16,31 +16,35 @@ class RangeValidator:
         self.description = description
 
     def __call__(self, value, *args, **kwargs):
-        if len(args)>=1:
-            minval=args[0]
+        if len(args) >= 1:
+            minval = args[0]
         else:
-            minval=self.minval
+            minval = self.minval
 
-        if len(args)>=2:
-            maxval=args[1]
+        if len(args) >= 2:
+            maxval = args[1]
         else:
-            maxval=self.maxval
+            maxval = self.maxval
 
-        assert(minval <= maxval)
+        assert minval <= maxval
         try:
             nval = float(value)
         except ValueError:
-            msg = _("Validation failed($name): could not convert '$value' to number",
-                    mapping = { 'name' : safe_unicode(self.name), 'value': safe_unicode(value)})
+            msg = _(
+                "Validation failed($name): could not convert '$value' to number",
+                mapping={"name": safe_unicode(self.name), "value": safe_unicode(value)},
+            )
             return recursiveTranslate(msg, **kwargs)
         if minval <= nval < maxval:
             return 1
 
-        msg = _("Validation failed($name): '$value' out of range($min, $max)",
-                mapping = {
-                    'name' : safe_unicode(self.name),
-                    'value': safe_unicode(value),
-                    'min' : safe_unicode(minval),
-                    'max' : safe_unicode(maxval),
-                    })
+        msg = _(
+            "Validation failed($name): '$value' out of range($min, $max)",
+            mapping={
+                "name": safe_unicode(self.name),
+                "value": safe_unicode(value),
+                "min": safe_unicode(minval),
+                "max": safe_unicode(maxval),
+            },
+        )
         return recursiveTranslate(msg, **kwargs)

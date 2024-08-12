@@ -29,7 +29,7 @@ class Service:
         else:
             raise FalseValidatorError(name_or_validator)
 
-    def register(self, validator): #XXX
+    def register(self, validator):  # XXX
         if not IValidator.providedBy(validator):
             raise FalseValidatorError(validator)
         name = validator.name
