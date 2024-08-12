@@ -41,7 +41,7 @@ class ValidationChain:
         val = []
         for validator, mode in self:
             name = validator.name
-            val.append("('%s', %s)" % (name, map.get(mode)))
+            val.append("('{}', {})".format(name, map.get(mode)))
         return '(%s)' % ', '.join(val)
 
     def __len__(self):
@@ -141,7 +141,7 @@ class ValidationChain:
                 elif mode == V_REQUIRED:
                     continue    # go on
                 else:
-                    raise ValidatorError('Unknown mode {0}'.format(mode))
+                    raise ValidatorError(f'Unknown mode {mode}')
             else:
                 if mode == V_SUFFICIENT:
                     if isinstance(result, basestring):
@@ -155,7 +155,7 @@ class ValidationChain:
                     failed = True
                     break    # fatal error, stop and fail
                 else:
-                    raise ValidatorError('Unknown mode {0}'.format(mode))
+                    raise ValidatorError(f'Unknown mode {mode}')
 
         if failed:
             return '\n'.join([

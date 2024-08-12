@@ -29,13 +29,13 @@ class RangeValidator:
         try:
             nval = float(value)
         except ValueError:
-            msg = _(u"Validation failed($name): could not convert '$value' to number",
+            msg = _("Validation failed($name): could not convert '$value' to number",
                     mapping = { 'name' : safe_unicode(self.name), 'value': safe_unicode(value)})
             return recursiveTranslate(msg, **kwargs)
         if minval <= nval < maxval:
             return 1
 
-        msg = _(u"Validation failed($name): '$value' out of range($min, $max)",
+        msg = _("Validation failed($name): '$value' out of range($min, $max)",
                 mapping = {
                     'name' : safe_unicode(self.name),
                     'value': safe_unicode(value),

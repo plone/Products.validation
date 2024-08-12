@@ -7,19 +7,8 @@ import six
 
 PloneMessageFactory = MessageFactory('plone')
 
-if six.PY2:
-    def safe_unicode(value):
-        if isinstance(value, unicode):
-            return value
-        elif isinstance(value, str):
-            try:
-                return unicode(value, 'utf-8')
-            except UnicodeDecodeError:
-                return unicode(value, 'utf-8', 'ignore')
-        return str(value)
-else:
-    def safe_unicode(value):
-        return value
+def safe_unicode(value):
+    return value
 
 
 def recursiveTranslate(message, **kwargs):

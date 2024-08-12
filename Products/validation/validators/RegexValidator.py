@@ -44,7 +44,7 @@ class RegexValidator:
 
     def __call__(self, value, *args, **kwargs):
         if not isinstance(value, str):
-            msg =  _(u"Validation failed($name): $value of type $type, expected 'string'",
+            msg =  _("Validation failed($name): $value of type $type, expected 'string'",
                      mapping = {
                         'name' : safe_unicode(self.name),
                         'value': safe_unicode(value),
@@ -62,7 +62,7 @@ class RegexValidator:
         for r in self.regex:
             m = r.match(value)
             if not m:
-                msg =  _(u"Validation failed($name): '$value' $errmsg",
+                msg =  _("Validation failed($name): '$value' $errmsg",
                          mapping={
                             'name' : safe_unicode(self.name),
                             'value': safe_unicode(value),

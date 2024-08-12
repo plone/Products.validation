@@ -90,7 +90,7 @@ class ExpressionValidator:
                 # support strings as errormsg for backward compatibility
                 return self.errormsg % kw
             else:
-                msg = _(u'validation failed, expr was:$expr',
+                msg = _('validation failed, expr was:$expr',
                         mapping={'expr': safe_unicode(self.expression)})
                 return recursiveTranslate(msg, **kwargs)
 

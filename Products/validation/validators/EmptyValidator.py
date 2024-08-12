@@ -41,7 +41,7 @@ class EmptyValidator:
             return True
         else:
             if getattr(self, 'showError', False):
-                msg =  _(u"Validation failed($name): '$value' is not empty.",
+                msg =  _("Validation failed($name): '$value' is not empty.",
                          mapping = { 'name' : safe_unicode(self.name), 'value': safe_unicode(value)})
                 return recursiveTranslate(msg, **kwargs)
             else:

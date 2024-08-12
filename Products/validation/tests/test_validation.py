@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from Products.validation import validation
 
 import doctest
@@ -6,7 +5,7 @@ import six
 import unittest
 
 
-class Dummy(object):
+class Dummy:
     """Dummy object with basic zope-like containment."""
     portal_type = 'dummy'  # needed in Plone 5.2 test
 
@@ -38,7 +37,7 @@ class Dummy(object):
                 if obj.getId() == name:
                     return obj
             return default
-        return super(Dummy, self).__getattr__(name, default)
+        return super().__getattr__(name, default)
 
     def dummy_checker(self, _id, **kwargs):
         if _id == 'good':
@@ -52,28 +51,25 @@ class TestValidation(unittest.TestCase):
         v = validation.validatorFor('inNumericRange')
         self.assertEqual(v(10, 1, 20), 1)
         self.assertEqual(v('10', 1, 20), 1)
-        self.assertEqual(v(0, 4, 5), u"Validation failed(inNumericRange): '0' out of range(4, 5)")
+        self.assertEqual(v(0, 4, 5), "Validation failed(inNumericRange): '0' out of range(4, 5)")
 
     def test_isDecimal(self):
         v = validation.validatorFor('isDecimal')
         self.assertEqual(v('1.5'), 1)
         self.assertEqual(v('1,5'), 1)
-        self.assertEqual(v('NaN'), u"Validation failed(isDecimal): 'NaN' is not a decimal number.")
+        self.assertEqual(v('NaN'), "Validation failed(isDecimal): 'NaN' is not a decimal number.")
 
     def test_isPrintable(self):
         v = validation.validatorFor('isPrintable')
         self.assertEqual(v('text'), 1)
         self.assertEqual(
             v('\\u203'),
-            u"Validation failed(isPrintable): '\\u203' contains unprintable characters"
+            "Validation failed(isPrintable): '\\u203' contains unprintable characters"
         )
-        if six.PY3:
-            int_type = "<class 'int'>"
-        else:
-            int_type = "<type 'int'>"
+        int_type = "<class 'int'>"
         self.assertEqual(
             v(10),
-            u"Validation failed(isPrintable): 10 of type {0}, expected 'string'".format(int_type)
+            f"Validation failed(isPrintable): 10 of type {int_type}, expected 'string'"
         )
 
     def test_isSSN(self):
@@ -97,7 +93,7 @@ class TestValidation(unittest.TestCase):
         self.assertEqual(v('https://be.brussels:8080/manage'), 1)
         self.assertEqual(v('irc://tiran@irc.freenode.net:6667/#plone'), 1)
         self.assertEqual(v('fish://tiran:password@myserver/~/'), 1)
-        self.assertEqual(v('http://\n'), u"Validation failed(isURL): 'http://\n' is not a valid url.")
+        self.assertEqual(v('http://\n'), "Validation failed(isURL): 'http://\n' is not a valid url.")
         self.assertNotEqual(v('../foo/bar'), 1)
 
     def test_isEmail(self):
@@ -105,7 +101,7 @@ class TestValidation(unittest.TestCase):
         self.assertEqual(v('test@test.com'), 1)
         self.assertEqual(v('test@be.brussels'), 1)
         self.assertNotEqual(v('@foo.bar'), 1)
-        self.assertEqual(v('me'), u"Validation failed(isEmail): 'me' is not a valid email address.")
+        self.assertEqual(v('me'), "Validation failed(isEmail): 'me' is not a valid email address.")
 
     def test_isMailto(self):
         v = validation.validatorFor('isMailto')
@@ -115,7 +111,7 @@ class TestValidation(unittest.TestCase):
         self.assertNotEqual(v('mailto:@foo.bar'), 1)
         self.assertNotEqual(v('@foo.bar'), 1)
         self.assertNotEqual(v('mailto:'), 1)
-        self.assertEqual(v('me'), u"Validation failed(isMailto): 'me' is not a valid email address.")
+        self.assertEqual(v('me'), "Validation failed(isMailto): 'me' is not a valid email address.")
 
     def test_isUnixLikeName(self):
         v = validation.validatorFor('isUnixLikeName')
@@ -123,7 +119,7 @@ class TestValidation(unittest.TestCase):
         self.assertTrue(v('a_123456'), 1)
         self.assertNotEqual(v('123'), 1)
         self.assertNotEqual(v('ab.c'), 1)
-        self.assertEqual(v('ab,c'), u"Validation failed(isUnixLikeName): 'ab,c' this name is not a valid identifier")
+        self.assertEqual(v('ab,c'), "Validation failed(isUnixLikeName): 'ab,c' this name is not a valid identifier")
         self.assertNotEqual(v('aaaaaaaab'), 1) # too long
 
     def test_isValidId_basic(self):
@@ -156,7 +152,7 @@ class TestValidation(unittest.TestCase):
         # This error message would be translated usually, but we do not care.
         self.assertEqual(
             v('foo', obj2),
-            u'There is already an item named ${name} in this folder.')
+            'There is already an item named ${name} in this folder.')
         # Plone seems to allow spaces.
         self.assertEqual(v('a b', obj), 1)
         # Some ids are forbidden in Plone.  We get an i18n message back.
@@ -187,7 +183,7 @@ class TestValidation(unittest.TestCase):
             parent.add(obj)
             self.assertEqual(v('good', obj), 1)
             self.assertEqual(v('foo', obj), 1)
-            self.assertEqual(v('a b', obj), u'Spaces are not allowed in ids')
+            self.assertEqual(v('a b', obj), 'Spaces are not allowed in ids')
         finally:
             if plone_check_id:
                 Products.CMFPlone.utils.check_id = plone_check_id

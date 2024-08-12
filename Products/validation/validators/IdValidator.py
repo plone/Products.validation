@@ -14,7 +14,7 @@ from Products.validation.i18n import safe_unicode
 def fallback_check_id(instance, id, **kwargs):
     # space test
     if ' ' in id:
-        msg =  _(u'Spaces are not allowed in ids')
+        msg =  _('Spaces are not allowed in ids')
         return recursiveTranslate(msg, **kwargs)
 
     # in parent test
@@ -22,7 +22,7 @@ def fallback_check_id(instance, id, **kwargs):
     # If the id is given to a different object already
     if (id in parent.objectIds() and
             getattr(aq_base(parent), id) is not aq_base(instance)):
-        msg = _(u'Id $id is already in use',
+        msg = _('Id $id is already in use',
                 mapping = {'id': safe_unicode(id)})
         return recursiveTranslate(msg, **kwargs)
 

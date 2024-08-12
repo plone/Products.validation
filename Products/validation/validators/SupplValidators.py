@@ -85,14 +85,14 @@ class DateValidator:
 
     def __call__(self, value, *args, **kwargs):
         if not value:
-            msg = _(u"Validation failed($name): value is empty ($value).",
+            msg = _("Validation failed($name): value is empty ($value).",
                    mapping = {'name': self.name, 'value': repr(value)})
             return recursiveTranslate(msg, **kwargs)
         if not isinstance(value, DateTime):
             try:
                 value = DateTime(value)
             except:
-                msg = _(u"Validation failed($name): could not convert $value to a date.",
+                msg = _("Validation failed($name): could not convert $value to a date.",
                         mapping = {'name': safe_unicode(self.name), 'value': safe_unicode(value)})
                 return recursiveTranslate(msg, **kwargs)
         return True
