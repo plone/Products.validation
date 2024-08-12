@@ -1,6 +1,7 @@
-from Products.validation.validators.RegexValidator import RegexValidator
-from Products.validation.validators.RangeValidator import RangeValidator
 from Products.validation.i18n import PloneMessageFactory as _
+from Products.validation.validators.RangeValidator import RangeValidator
+from Products.validation.validators.RegexValidator import RegexValidator
+
 
 # protocols for isURL validator, the secure (*s) variants are automagically
 # added

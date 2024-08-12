@@ -1,14 +1,14 @@
-from Acquisition import aq_parent
-from Acquisition import aq_inner
 from Acquisition import aq_base
 from Acquisition import aq_get
-from zExceptions import BadRequest
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from OFS import ObjectManager
-from Products.validation.interfaces.IValidator import IValidator
-from zope.interface import implementer
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
+from Products.validation.interfaces.IValidator import IValidator
+from zExceptions import BadRequest
+from zope.interface import implementer
 
 
 def fallback_check_id(instance, id, **kwargs):

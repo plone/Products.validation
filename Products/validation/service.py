@@ -1,6 +1,6 @@
+from Products.validation.exceptions import AlreadyRegisteredValidatorError
 from Products.validation.exceptions import FalseValidatorError
 from Products.validation.exceptions import UnknowValidatorError
-from Products.validation.exceptions import AlreadyRegisteredValidatorError
 from Products.validation.interfaces.IValidationService import IValidationService
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implementer

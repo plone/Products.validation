@@ -21,13 +21,14 @@
 """
 """
 
-from Products.validation.interfaces.IValidator import IValidator
+from Products.PageTemplates.Expressions import getEngine
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
-from Products.PageTemplates.Expressions import getEngine
-from zope.interface import implementer
+from Products.validation.interfaces.IValidator import IValidator
 from zope.i18nmessageid import Message
+from zope.interface import implementer
+
 
 @implementer(IValidator)
 class ExpressionValidator:

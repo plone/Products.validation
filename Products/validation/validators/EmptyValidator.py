@@ -1,8 +1,9 @@
-from zope.interface import implementer
 from Products.validation.i18n import PloneMessageFactory as _
 from Products.validation.i18n import recursiveTranslate
 from Products.validation.i18n import safe_unicode
 from Products.validation.interfaces.IValidator import IValidator
+from zope.interface import implementer
+
 
 _marker = []
 

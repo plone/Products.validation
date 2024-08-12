@@ -1,19 +1,28 @@
-from Products.validation.validators.RegexValidator import RegexValidator
-from Products.validation.validators.RangeValidator import RangeValidator
 from Products.validation.validators.ExpressionValidator import ExpressionValidator
+from Products.validation.validators.RangeValidator import RangeValidator
+from Products.validation.validators.RegexValidator import RegexValidator
+
 
 validators = []
 
 from Products.validation.validators.BaseValidators import baseValidators
+
+
 validators.extend(baseValidators)
 
 from Products.validation.validators.EmptyValidator import validatorList
+
+
 validators.extend(validatorList)
 
 from Products.validation.validators.SupplValidators import validatorList
+
+
 validators.extend(validatorList)
 
 from Products.validation.validators.IdValidator import validatorList
+
+
 validators.extend(validatorList)
 
 

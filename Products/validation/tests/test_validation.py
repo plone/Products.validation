@@ -166,6 +166,7 @@ class TestValidation(unittest.TestCase):
 
     def test_isValidId_fallback(self):
         from Products.validation.validators import IdValidator
+
         # We can only check this if utils.check_id gives an ImportError.
         try:
             from Products.CMFPlone.utils import check_id as plone_check_id
@@ -189,7 +190,8 @@ class TestValidation(unittest.TestCase):
 
 
 def test_suite():
-    from unittest import TestSuite, makeSuite
+    from unittest import makeSuite
+    from unittest import TestSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestValidation))
 
