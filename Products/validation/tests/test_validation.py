@@ -134,8 +134,6 @@ class TestValidation(unittest.TestCase):
         self.assertNotEqual(v("aaaaaaaab"), 1)  # too long
 
     def test_isValidId_basic(self):
-        from Products.validation.validators import IdValidator
-
         v = validation.validatorFor("isValidId")
         obj = Dummy("foo")
 
@@ -145,10 +143,10 @@ class TestValidation(unittest.TestCase):
         self.assertEqual(v("a b", obj), "bad id")
 
     def test_isValidId_plone(self):
-        from Products.validation.validators import IdValidator
-
         try:
-            from Products.CMFPlone.utils import check_id
+            # We do not use this import directly, but if it fails,
+            # this test is useless.
+            from Products.CMFPlone.utils import check_id  # noqa F401
         except ImportError:
             return
 
@@ -179,8 +177,6 @@ class TestValidation(unittest.TestCase):
         self.assertEqual(v("layout", obj), "${name} is reserved.")
 
     def test_isValidId_fallback(self):
-        from Products.validation.validators import IdValidator
-
         # We can only check this if utils.check_id gives an ImportError.
         try:
             from Products.CMFPlone.utils import check_id as plone_check_id
