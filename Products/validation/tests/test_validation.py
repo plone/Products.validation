@@ -166,14 +166,6 @@ class TestValidation(unittest.TestCase):
         # Plone seems to allow spaces.
         self.assertEqual(v("a b", obj), 1)
         # Some ids are forbidden in Plone.  We get an i18n message back.
-        # Problem: on Plone 5.1, utils.check_id simply looks for a
-        # check_id script/attribute on the context.  This will fail.
-        # So only test this in Plone 5.2+, not on 5.1.
-        import pkg_resources
-
-        version = pkg_resources.get_distribution("Products.CMFPlone").version
-        if version.startswith("5.1"):
-            return
         self.assertEqual(v("layout", obj), "${name} is reserved.")
 
     def test_isValidId_fallback(self):
