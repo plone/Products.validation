@@ -1,6 +1,5 @@
 from Products.validation import validation
 
-import doctest
 import unittest
 
 
@@ -190,17 +189,3 @@ class TestValidation(unittest.TestCase):
         finally:
             if plone_check_id:
                 Products.CMFPlone.utils.check_id = plone_check_id
-
-
-def test_suite():
-    from unittest import makeSuite
-    from unittest import TestSuite
-
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestValidation))
-
-    doctests = ("Products.validation.validators.ExpressionValidator",)
-    for module in doctests:
-        suite.addTest(doctest.DocTestSuite(module))
-
-    return suite
