@@ -20,7 +20,7 @@ def recursiveTranslate(message, **kwargs):
     map = message.mapping
     if map:
         for key in map.keys():
-            if type(map[key]) == Message:
+            if isinstance(map[key], Message):
                 map[key] = translate(map[key], context=request)
 
     return translate(message, context=request)

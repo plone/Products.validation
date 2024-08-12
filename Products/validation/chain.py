@@ -120,7 +120,7 @@ class ValidationChain:
         for validator, mode in self:
             name = validator.name
             result = validator(value, *args, **kwargs)
-            if result == True:
+            if result is True:
                 if mode == V_SUFFICIENT:
                     return True  # validation was successful
                 elif mode == V_REQUIRED:
@@ -145,7 +145,7 @@ class ValidationChain:
         if failed:
             return "\n".join(
                 [
-                    #'%s: %s' % (name, res)
+                    # '%s: %s' % (name, res)
                     "%s" % res
                     for name, res in results.items()
                 ]

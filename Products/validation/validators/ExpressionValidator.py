@@ -82,7 +82,7 @@ class ExpressionValidator:
         if res:
             return True
         else:
-            if self.errormsg and type(self.errormsg) == Message:
+            if self.errormsg and isinstance(self.errormsg, Message):
                 # hack to support including values in i18n message, too. hopefully this works out
                 # potentially it could unintentionally overwrite already present values
                 self.errormsg.mapping = kw

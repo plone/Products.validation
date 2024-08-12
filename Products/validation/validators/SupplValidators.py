@@ -98,7 +98,7 @@ class DateValidator:
         if not isinstance(value, DateTime):
             try:
                 value = DateTime(value)
-            except:
+            except Exception:
                 msg = _(
                     "Validation failed($name): could not convert $value to a date.",
                     mapping={
