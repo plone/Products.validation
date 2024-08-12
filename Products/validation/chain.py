@@ -38,7 +38,7 @@ class ValidationChain:
         val = []
         for validator, mode in self:
             name = validator.name
-            val.append("('{}', {})".format(name, map.get(mode)))
+            val.append(f"('{name}', {map.get(mode)})")
         return "(%s)" % ", ".join(val)
 
     def __len__(self):
