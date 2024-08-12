@@ -38,11 +38,6 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "setuptools",
-        "zope.i18n",
-        "zope.i18nmessageid",
-        "zope.interface",
-        "Acquisition",
-        "DateTime",
-        "Zope2",
+        "Zope",
     ],
 )
