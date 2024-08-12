@@ -5,8 +5,6 @@ from Products.validation.interfaces.IValidationService import IValidationService
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implementer
 
-import six
-
 
 @implementer(IValidationService)
 class Service:

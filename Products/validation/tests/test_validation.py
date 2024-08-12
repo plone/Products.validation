@@ -1,7 +1,6 @@
 from Products.validation import validation
 
 import doctest
-import six
 import unittest
 
 

@@ -37,7 +37,6 @@ setup(
     extras_require={},
     install_requires=[
         'setuptools',
-        'six',
         'zope.i18n',
         'zope.i18nmessageid',
         'zope.interface',

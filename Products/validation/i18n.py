@@ -2,8 +2,6 @@ from zope.i18nmessageid import MessageFactory
 from zope.i18n import translate
 from zope.i18nmessageid import Message
 
-import six
-
 
 PloneMessageFactory = MessageFactory('plone')
 

@@ -5,7 +5,6 @@ from Products.validation.i18n import safe_unicode
 from zope.interface import implementer
 
 import re
-import six
 
 
 def ignoreRE(value, expression):
