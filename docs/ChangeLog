@@ -38,7 +38,7 @@ DONT USE ChangeLog - USE history.txt instead!
       and description to validators.
 
     * service.py (Service.items): Improve the service a bit, to be
-      useable with the other registries.
+      usable with the other registries.
 
 2003-08-04  Sylvain Thénault  <syt@logilab.fr>
 

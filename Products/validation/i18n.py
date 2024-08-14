@@ -1,25 +1,13 @@
-from zope.i18nmessageid import MessageFactory
 from zope.i18n import translate
 from zope.i18nmessageid import Message
+from zope.i18nmessageid import MessageFactory
 
-import six
+
+PloneMessageFactory = MessageFactory("plone")
 
 
-PloneMessageFactory = MessageFactory('plone')
-
-if six.PY2:
-    def safe_unicode(value):
-        if isinstance(value, unicode):
-            return value
-        elif isinstance(value, str):
-            try:
-                return unicode(value, 'utf-8')
-            except UnicodeDecodeError:
-                return unicode(value, 'utf-8', 'ignore')
-        return str(value)
-else:
-    def safe_unicode(value):
-        return value
+def safe_unicode(value):
+    return value
 
 
 def recursiveTranslate(message, **kwargs):
@@ -27,12 +15,12 @@ def recursiveTranslate(message, **kwargs):
     if kwargs['REQUEST'] is None, return the message untranslated
     """
 
-    request = kwargs.get('REQUEST',None)
+    request = kwargs.get("REQUEST", None)
 
     map = message.mapping
     if map:
         for key in map.keys():
-            if type(map[key]) == Message:
+            if isinstance(map[key], Message):
                 map[key] = translate(map[key], context=request)
 
     return translate(message, context=request)

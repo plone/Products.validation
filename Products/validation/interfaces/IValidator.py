@@ -1,4 +1,6 @@
-from zope.interface import Interface, Attribute
+from zope.interface import Attribute
+from zope.interface import Interface
+
 
 class IValidator(Interface):
 
@@ -11,5 +13,4 @@ class IValidator(Interface):
 
 
 class IValidationChain(IValidator):
-    """Marker interface for a chain
-    """
+    """Marker interface for a chain"""

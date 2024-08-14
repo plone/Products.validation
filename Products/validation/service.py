@@ -1,11 +1,8 @@
 from Products.validation.exceptions import FalseValidatorError
 from Products.validation.exceptions import UnknowValidatorError
-from Products.validation.exceptions import AlreadyRegisteredValidatorError
 from Products.validation.interfaces.IValidationService import IValidationService
 from Products.validation.interfaces.IValidator import IValidator
 from zope.interface import implementer
-
-import six
 
 
 @implementer(IValidationService)
@@ -31,13 +28,13 @@ class Service:
         else:
             raise FalseValidatorError(name_or_validator)
 
-    def register(self, validator): #XXX
+    def register(self, validator):
         if not IValidator.providedBy(validator):
             raise FalseValidatorError(validator)
         name = validator.name
         # The following code prevents refreshing
-        ##if self._validator.has_key(name):
-        ##    raise AlreadyRegisteredValidatorError, name
+        # if self._validator.has_key(name):
+        #    raise AlreadyRegisteredValidatorError, name
         self._validator[name] = validator
 
     def items(self):

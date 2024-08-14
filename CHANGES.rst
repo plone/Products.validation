@@ -89,7 +89,7 @@ Bug fixes:
   [hannosch]
 
 - Purge old zope2 Interface interfaces for Zope 2.12 compatibility.
-  Consider branching before this checkin if release required before Plone 4.
+  Consider branching before this commit if release required before Plone 4.
   [elro]
 
 - Cleaned up lots of old BBB code.
@@ -161,7 +161,7 @@ Bug fixes:
   Archetypes 1.4.2 (used for Plone 2.5.2) of PortalTransforms is then the 1.5
   final.
   We dont need increasing of release numbers because of Plone 3.0,
-  Archetypes 1.5, ... if theres no change in the dependend product, like
+  Archetypes 1.5, ... if there's no change in the dependent product, like
   this one.
   [jensens]
 
