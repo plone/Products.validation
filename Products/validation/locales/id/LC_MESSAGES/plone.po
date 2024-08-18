@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "Id $id telah digunakan"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Tidak boleh menggunakan spasi dalam id"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Validasi gagal($ame): $value dari tipe $type, seharusnya berupa huruf/string"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Validasi gagal ($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Validasi gagal($name): '$value' tidak kosong."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Validasi gagal($name): '$value' diluar rentang yang seharusnya ($min,$max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Validasi gagal($name): tidak bisa mengubah $value menjadi bentuk tanggal."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Validasi gagal($name): tidak bisa mengubah '$value' menjadi angka"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Validasi gagal($name): nilai kosong ($value)"
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Validasi gagal($name): Data yang diunggah terlalu besar ${size}MB (maksimal ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "Berisi karakter yg tidak bisa di print"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "bukan bilangan desimal"
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "bukan alamat email yang benar"
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "bukan nomor telepon internasional yang benar"
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "bukan alamat url yang benar"
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "bukan nomor telepon US yang benar"
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "bukan kodepos yang benar"
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "bukan format SSN yang benar"
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "bukan intenger"
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "nama ini bukan nama pengenal yang valid"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr ""

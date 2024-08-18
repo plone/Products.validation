@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "$id identifikadorea erabilita dago jadanik"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Identifikadoreetan ezin dira espazioak erabili"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Balidazioak huts egin du ($name): $value balioa $type motakoa da eta karaktere kate bat espero zen"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Balidazioak huts egin du ($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Balidazioak huts egin du ($name): '$value' ez da hutsa."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Balidazioak huts egin du ($name): '$value' ez dago ($min, $max) tartean"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Balidazioak huts egin du ($name): $value ezin da data formatura bihurtu"
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Balidazioak huts egin du ($name): '$value' ezin da zenbaki formatura bihurtu"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Balidazioak huts egin du ($name): balioa ezin da hutsa izan ($value)"
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Balidazioak huts egin du: ($name: kargatutako fitxategia handiegia da: ${size} MB (gehienezko muga ${max} MB))"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "Inprimatu ezin diren karaktereak ditu"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "Ez da zenbaki dezimala"
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "Ez da baliozko e-posta helbidea"
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "Ez da baliozko nazioarteko telefono zenbakia"
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "Ez da baliozko web helbide bat"
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "Ez da AEBko telefono zenbaki bat"
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "Ez da AEBko posta kode bat"
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "Ez da baliozko SSN zenbakia"
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "Ez da zenbakia"
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "Izen hau ez da baliozko identifikadore bat"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "Balidazioak huts egin du, espresioa hauxe izan da: $expr"

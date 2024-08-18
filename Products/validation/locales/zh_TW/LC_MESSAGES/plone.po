@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "辨別碼 $id 已被使用"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "空白不允許在 Id 中使用"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "檢核失敗($name): 型別 $type 的資料 $value, 預期為「字串」"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "檢核失敗($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "檢核失敗($name): '$value' 不是空的。"
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "檢核失敗($name): '$value' 超過範圍($min,$max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "檢核失敗($name): $value 無法轉為日期"
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "檢核失敗($name): $value 無法轉為數值"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "檢核失敗($name): 資料是空的($value)。"
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "檢核失敗($name): 上傳資料太大: ${size}MB (最大 ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "含有無法列印的字元"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "不是一個十進位數值。"
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "不是一個正確的電子郵件地址。"
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "不是一個正確的國際電話號碼。"
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "不是一個正確的網址。"
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "不是一個正確的美國電話號碼。"
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "不是一個正確的郵遞區號。"
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "不是一個正確的 SSN。"
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "不是一個整數。"
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "這名稱不是正確的Id"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "檢核失敗，表示式為: $expr"

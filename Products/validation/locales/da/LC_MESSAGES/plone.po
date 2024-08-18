@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "Id ${id} er allerede i brug"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Mellemrum er ikke tilladt i id'er"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Validering fejlede ($name): $value of type $type, expected 'string'"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Validering fejlede ($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Validation failed($name): '$value' is not empty."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Validation failed($name): '$value' out of range($min, $max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Validation failed($name): could not convert $value to a date."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Validation failed($name): could not convert '$value' to number"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Validation failed($name): value is empty ($value)."
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "indeholder tegn som ikke kan printes"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "er ikke et decimaltal"
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "er ikke en gyldig email-adresse"
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "er ikke et gyldigt internationalt tlfnr."
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "er ikke en gyldig url"
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "er ikke et gyldigt us tlfnr."
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "er ikke en gyldig zip-kode."
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "er ikke et velformet SSN (social security number)"
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "er ikke et heltal"
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "Navnet er ikke en gyldig identifikator"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "Validering fejlede, expr was:$expr"

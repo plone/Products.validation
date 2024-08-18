@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "Id $id jest już używane"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Spacje nie są tu dopuszczalne."
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Błąd walidacji($name): $value jest typu $type, a powinna być 'string'"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Błąd walidacji($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Błąd walidacji($name): '$value' nie jest pusta."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Błąd walidacji($name): '$value' ma wartość spoza zakresu ($min, $max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Błąd walidacji($name): nie można dokonać konwersji $value na datę."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Błąd walidacji($name): nie można dokonać konwersji $value na liczbę."
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Błąd walidacji($name): wartość jest pusta ($value)."
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Błąd walidacji($name): Wysłany plik jest zbyt duży: ${size}MB (maksymalnie ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "Zawiera znaki niemożliwe do wydrukowania"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "nie jest liczbą dziesiętną"
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "niepoprawny adres email"
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "niepoprawny międzynarodowy numer telefonu"
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "niepoprawny URL"
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "niepoprawny numer telefonu"
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "niepoprawny kod pocztowy"
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "nie jest poprawnym numerem SSN."
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "nie jest liczbą naturalną."
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "ta nazwa nie jest poprawnych identyfikatorem"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "błąd walidacji, wyrażenie: $expr"

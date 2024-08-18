@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "Таке $id вже використовується"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Пробіли недопустимі в ids"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Перевірка не вдалася($name): $value типу $type, очікувалось 'стрічка'"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Помилка перевірки($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Помилка перевірки($name): '$value' не є порожнім."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Перевірка не вдалася($name): '$value' виходить за межі діапазону($min, $max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Помилка перевірки($name): неможливо перетворити $value на дату."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Помилка перевірки($name): неможливо перетворити $value на число."
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Помилка перевірки($name): '$value' є порожнім."
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Помилка перевірки($name: Завелика кількість завантажених даних: ${size}MB (max ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "містить символи, які неможливо надрукувати"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "не є десятковим числом."
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "не є дійсною адресою електронної пошти."
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "не є дійсним міжнародним телефонним номером."
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "не є дійсним URL."
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "не є дійсним телефонним номером."
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "не є дійсним індексом."
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "не є добре сформованим SSN."
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "не є цілим числом."
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "це ім'я не є коректним ідентифікатором"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "перевірка невдала, вираз такий:$expr"
