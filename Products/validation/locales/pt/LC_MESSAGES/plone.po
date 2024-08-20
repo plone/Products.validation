@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "O identificador $id já está a ser utilizado"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "Espaços não são permitidos nos identificadores."
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Erro de validação($name): $value é do tipo $type, esperado 'string'"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Erro de validação($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Erro de validação($name): '$value' não é vazio."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Erro de validação($name): '$value' está fora dos limites ($min, $max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Erro de validação($name): não foi possível converter $value numa data."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Erro de validação($name): não foi possível converter $value num número"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Erro de validação($name): valor é vazio ($value)."
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Erro de validação($name: Conteúdo carregado demasiado grande: ${size}MB (máximo ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "contém caracteres impossíveis de imprimir"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "não é um número decimal válido."
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "não é um endereço de email válido."
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "não é um número de telefone internacional válido."
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "não é um URL válido."
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "não é um número de telefone válido nos EUA."
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "não é um código postal válido."
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "não é um SSN bem construído."
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "não é um inteiro."
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "Este nome não é um identificador válido"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "erro de validação, a expressão foi:$expr"

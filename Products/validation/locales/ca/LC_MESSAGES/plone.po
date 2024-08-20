@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-08-18 09:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../validators/IdValidator.py:26
+msgid "Id $id is already in use"
+msgstr "L'Id $id ja s'està utilitzant"
+
+#: ../validators/IdValidator.py:17
+msgid "Spaces are not allowed in ids"
+msgstr "No es permeten espais en blanc per als ids"
+
+#: ../validators/RegexValidator.py:46
+msgid "Validation failed($name): $value of type $type, expected 'string'"
+msgstr "Ha fallat la validació($name): $value del tipus $type, s'esperava 'string'"
+
+#: ../validators/RegexValidator.py:65
+msgid "Validation failed($name): '$value' $errmsg"
+msgstr "Ha fallat la validació($name): '$value' $errmsg"
+
+#: ../validators/EmptyValidator.py:45
+msgid "Validation failed($name): '$value' is not empty."
+msgstr "Ha fallat la validació($name): '$value' no és buit."
+
+#: ../validators/RangeValidator.py:41
+msgid "Validation failed($name): '$value' out of range($min, $max)"
+msgstr "Ha fallat la validació($name): '$value' fora de rang($min, $max)"
+
+#: ../validators/SupplValidators.py:103
+msgid "Validation failed($name): could not convert $value to a date."
+msgstr "Ha fallat la validació($name): no es pot convertir $value a una data."
+
+#: ../validators/RangeValidator.py:33
+msgid "Validation failed($name): could not convert '$value' to number"
+msgstr "Ha fallat la validació($name): no es pot convertir '$value' a un número"
+
+#: ../validators/SupplValidators.py:94
+msgid "Validation failed($name): value is empty ($value)."
+msgstr "Ha fallat la validació($name): el valor és buit ($value)."
+
+#: ../validators/SupplValidators.py:71
+msgid "Validation failed($name: Uploaded data is too large: ${size}MB (max ${max}MB)"
+msgstr "Ha fallat la validació($name: La informació que s'ha carregat és massa gran ${size}MB (màx. ${max}MB)"
+
+#: ../validators/BaseValidators.py:51
+msgid "contains unprintable characters"
+msgstr "conté caràcters no imprimibles"
+
+#: ../validators/BaseValidators.py:37
+msgid "is not a decimal number."
+msgstr "no és un número decimal."
+
+#: ../validators/BaseValidators.py:95
+msgid "is not a valid email address."
+msgstr "no és una adreça de correu vàlida."
+
+#: ../validators/BaseValidators.py:74
+msgid "is not a valid international phone number."
+msgstr "no és un número de telèfon internacional vàlid."
+
+#: ../validators/BaseValidators.py:88
+msgid "is not a valid url."
+msgstr "no és un url vàlid."
+
+#: ../validators/BaseValidators.py:66
+msgid "is not a valid us phone number."
+msgstr "no és un número de telèfon vàlid."
+
+#: ../validators/BaseValidators.py:81
+msgid "is not a valid zip code."
+msgstr "no és un codi postal vàlid."
+
+#: ../validators/BaseValidators.py:58
+msgid "is not a well formed SSN."
+msgstr "no és un SSN ben format."
+
+#: ../validators/BaseValidators.py:44
+msgid "is not an integer."
+msgstr "no és un enter."
+
+#: ../validators/BaseValidators.py:109
+msgid "this name is not a valid identifier"
+msgstr "aquest nom no és un identificador vàlid"
+
+#: ../validators/ExpressionValidator.py:94
+msgid "validation failed, expr was:$expr"
+msgstr "ha fallat la validació, l'expressió era:$expr"
