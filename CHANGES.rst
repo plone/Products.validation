@@ -8,6 +8,37 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.0 (2024-08-21)
+------------------
+
+Breaking changes:
+
+
+- Removed `Products/validation/validators/validator.py`.
+  This had backwards compatibility imports in a way that did not work on Python 3.
+  So apparently no one needed this so far.
+  [maurits] (#60)
+- Drop support for Plone 5.2 and for Python 3.7 and lower.
+  Only Plone 6.0 and 6.1 are supported now.
+  Note that in Plone 6.1, this package is no longer tested together with the core.
+  It has been moved to the ecosystem versions.
+  [maurits] (#60)
+
+
+New features:
+
+
+- Move translations from plone.app.locales to here
+  [erral] (#11)
+
+
+Internal:
+
+
+- Update configuration files.
+  [plone devs]
+
+
 2.1.3 (2020-06-24)
 ------------------
 
