@@ -1,0 +1,4 @@
+Add workaround for compatibility with ``zope.i18nmessageid`` 7.0+ (Zope 5.11).
+This would throw a TypeError in our ``recursiveTranslate`` function.
+For now work around it: leave the recursive parts untranslated.
+[maurits]
