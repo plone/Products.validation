@@ -1,0 +1,3 @@
+Remove unneeded code from ``recursiveTranslate`` that broke with latest Zope 5.11.
+``zope.i18n`` already supports recursive translation out of the box since 2008.
+[maurits]
