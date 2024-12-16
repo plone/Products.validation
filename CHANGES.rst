@@ -8,6 +8,17 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.1 (2024-12-16)
+------------------
+
+Bug fixes:
+
+
+- Remove unneeded code from ``recursiveTranslate`` that broke with latest Zope 5.11.
+  ``zope.i18n`` already supports recursive translation out of the box since 2008.
+  [maurits] (#70)
+
+
 3.0.0 (2024-08-21)
 ------------------
 
