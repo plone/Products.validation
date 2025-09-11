@@ -1,14 +1,20 @@
+from pathlib import Path
 from setuptools import find_packages
 from setuptools import setup
 
 
 version = "3.0.2.dev0"
 
+long_description = (
+    f"{Path('README.rst').read_text()}\n{Path('CHANGES.rst').read_text()}\n"
+)
+
 setup(
     name="Products.validation",
     version=version,
     description="Data validation package for Zope",
-    long_description=(open("README.rst").read() + "\n" + open("CHANGES.rst").read()),
+    long_description=long_description,
+    long_description_content_type="text/x-rst",
     classifiers=[
         "Development Status :: 6 - Mature",
         "Framework :: Zope",
@@ -30,8 +36,9 @@ setup(
     author_email="plone-developers@lists.sourceforge.net",
     url="https://github.com/plone/Products.validation",
     license="GPL",
-    packages=find_packages(),
+    packages=find_packages("src"),
     namespace_packages=["Products"],
+    package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
     extras_require={},
