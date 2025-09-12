@@ -1,17 +1,20 @@
 # Generated from:
-# https://github.com/plone/meta/tree/main/config/default
+# https://github.com/plone/meta/tree/main/src/plone/meta/default
 # See the inline comments on how to expand/tweak this configuration file
 [meta]
 template = "default"
-commit-id = "4b86f8f1"
+commit-id = "2.1.0"
 
 [flake8]
 extra_lines = """
 per-file-ignores =
-    Products/validation/__init__.py:F401
-    Products/validation/interfaces/__init__.py:F401
-    Products/validation/validators/validator.py:F401
+    src/Products/validation/__init__.py:F401
+    src/Products/validation/interfaces/__init__.py:F401
+    src/Products/validation/validators/validator.py:F401
 """
 
 [pyproject]
 dependencies_ignores = "['Products.CMFPlone']"
+
+[tox]
+test_matrix = {"6.0" = ["*"] }
