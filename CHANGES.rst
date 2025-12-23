@@ -8,6 +8,24 @@ Changelog
 
 .. towncrier release notes start
 
+4.0.0 (2025-12-23)
+------------------
+
+Breaking changes:
+
+
+- Replace ``pkg_resources`` namespace with PEP 420 native namespace.
+  Support only Plone 6.2 and Python 3.10+.
+  @petschki
+
+
+Internal:
+
+
+- Move distribution to src layout [gforcada] (#4217)
+- Minimal cleanups @gforcada
+
+
 3.0.1 (2024-12-16)
 ------------------
 
