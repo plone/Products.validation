@@ -14,7 +14,7 @@ per-file-ignores =
 """
 
 [pyproject]
-dependencies_ignores = "['Products.CMFPlone']"
+dependencies_ignores = "['plone.base']"
 
 [tox]
 test_matrix = { "6.2" = ["*"] }

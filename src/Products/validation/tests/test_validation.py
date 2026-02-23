@@ -145,7 +145,7 @@ class TestValidation(unittest.TestCase):
         try:
             # We do not use this import directly, but if it fails,
             # this test is useless.
-            from Products.CMFPlone.utils import check_id  # noqa F401
+            from plone.base.utils import check_id  # noqa F401
         except ImportError:
             return
 
@@ -170,13 +170,13 @@ class TestValidation(unittest.TestCase):
     def test_isValidId_fallback(self):
         # We can only check this if utils.check_id gives an ImportError.
         try:
-            from Products.CMFPlone.utils import check_id as plone_check_id
+            from plone.base.utils import check_id as plone_check_id
         except ImportError:
             plone_check_id = None
         else:
-            import Products.CMFPlone.utils
+            import plone.base.utils
 
-            del Products.CMFPlone.utils.check_id
+            del plone.base.utils.check_id
 
         try:
             v = validation.validatorFor("isValidId")
@@ -188,4 +188,4 @@ class TestValidation(unittest.TestCase):
             self.assertEqual(v("a b", obj), "Spaces are not allowed in ids")
         finally:
             if plone_check_id:
-                Products.CMFPlone.utils.check_id = plone_check_id
+                plone.base.utils.check_id = plone_check_id
