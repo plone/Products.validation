@@ -17,4 +17,5 @@ per-file-ignores =
 dependencies_ignores = "['Products.CMFPlone']"
 
 [tox]
-test_matrix = {"6.2" = ["*"] }
+test_matrix = { "6.2" = ["*"] }
+skip_test_extra = true
