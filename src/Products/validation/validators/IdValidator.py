@@ -55,10 +55,9 @@ class IdValidator:
             result = check_id(id, required=kwargs.get("required"))
         else:
             try:
-                # try to use the check_id script of CMFPlone
-                # Import here to avoid a hard dependency and
-                # possible cyclic imports.
-                from Products.CMFPlone.utils import check_id
+                # try to use the check_id script from plone.base.utils.
+                # Import here to avoid a hard dependency.
+                from plone.base.utils import check_id
             except ImportError:
                 # Use our own fallback function.
                 check_id = fallback_check_id
