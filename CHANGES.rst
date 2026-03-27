@@ -8,6 +8,18 @@ Changelog
 
 .. towncrier release notes start
 
+4.0.1 (2026-03-27)
+------------------
+
+Internal:
+
+
+- Update configuration files.
+  [plone devs]
+- Update the check_id import for plone.base.
+  [thet]
+
+
 4.0.0 (2025-12-23)
 ------------------
 
